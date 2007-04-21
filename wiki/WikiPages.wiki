@@ -7,4 +7,4 @@ Testing wikiPages
 
 = Details =
 
-Creating WikiPages is easy. Just write ![MyWikiPage] and check the result. You'll probably find some ? around your MyWikiPage. Then you click it and edit the way you want :)
+Creating WikiPages is easy. Just write ![MyWikiPage] and check the result. You'll probably find some ? around your !MyWikiPage. Then you click it and edit the way you want :)
