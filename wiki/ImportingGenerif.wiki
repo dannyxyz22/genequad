@@ -1,0 +1,28 @@
+#summary One-sentence summary of this page.
+
+= Importing GeneRIF database to sqlite =
+
+To get started on the project, let us first import the GeneRIF into a
+database.
+
+http://www.ncbi.nlm.nih.gov/projects/GeneRIF/
+ftp://ftp.ncbi.nih.gov/gene/
+
+SQLite is preferred, because we have other projects using it, so later they
+can be easily integrated.
+http://www.sqlite.org/
+
+Let me know if you have any questions.
+
+Best,
+
+Simon
+
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
