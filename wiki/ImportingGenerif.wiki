@@ -25,7 +25,7 @@ became three records:
 
 This way, we can have fast access for the PubMedID field, now stored as integer.
 The database I've created was like this:
-
+{{{
 create table generif (
 id integer primary key,
  taxID integer,
@@ -35,8 +35,9 @@ updateDay varchar(20),
 updateHour varchar(8),
 description text
 );
+}}}
 
-I'm really not that familiar with the 'text' type of field, but I can check it up later in order to see how fast it is. We can later change it to something like "description varchar(300)" for instance, if that's faster.
+I'm really not that familiar with the 'text' type of field, but I can check it up later in order to see how fast it is. It can be later changed into something like "description varchar(300)" for instance, if that's faster.
 
 After that, I parsed the data from generifs_basic and added that to the database, through a the following c++ program:
 {{{
