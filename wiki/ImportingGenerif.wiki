@@ -20,9 +20,15 @@ Simon
 
 http://bp0.blogger.com/_6gCAzd7d_bQ/Rlz17LfOgVI/AAAAAAAAAAg/LlbYR7ZAeEQ/s1600-h/Zipf.jpg
 
+[http://bp0.blogger.com/_6gCAzd7d_bQ/Rlz17LfOgVI/AAAAAAAAAAg/LlbYR7ZAeEQ/s1600-h/Zipf.jpg Check this link]
+
 = Details =
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
   * Headings, paragraphs, and lists
   * Automatic links to other wiki pages
+
+
+
+
