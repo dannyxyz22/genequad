@@ -1,34 +1,144 @@
-#summary One-sentence summary of this page.
+#summary how to import a GeneRIF database to sqlite3
 
-= Importing GeneRIF database to sqlite =
+= Importing GeneRIF database to sqlite3 =
 
-To get started on the project, let us first import the GeneRIF into a
-database.
+Well, the first task I was assigned was to import GeneRIF plain text descriptions into a database. 
+
+It is located at:
 
 http://www.ncbi.nlm.nih.gov/projects/GeneRIF/
 ftp://ftp.ncbi.nih.gov/gene/
 
-SQLite is preferred, because we have other projects using it, so later they
-can be easily integrated.
-http://www.sqlite.org/
+As pointed by Dr. Simon, SQLite (http://www.sqlite.org/) is preferred, because they have other projects using it, so later they can be easily integrated.
 
-Let me know if you have any questions.
+Firstly, I downloaded the files  README  (ftp://ftp.ncbi.nih.gov/gene/README) and generifs_basic.gz ( ftp://ftp.ncbi.nih.gov/gene/GeneRIF/generifs_basic.gz).
 
-Best,
+After that I noticed that a couple lines from generifs_basic had more than one pubmed id - as it is said in README, "PubMed ID (PMID) list unique citation identifier(s) in PubMed; multiple values are comma-separated". So, in order to handle that issue, I duplicated these records. For instance, the line 26310, in which we had:
 
-Simon
+||9606||708||1830244,8262387,8567680||2004-05-11||13:09||This protein has also been identified as the p32 subunit of pre-mRNA splicing factor SF2, as well as a hyaluronic acid-binding protein||
 
-http://bp0.blogger.com/_6gCAzd7d_bQ/Rlz17LfOgVI/AAAAAAAAAAg/LlbYR7ZAeEQ/s1600-h/Zipf.jpg
+became three records:
 
-[http://bp0.blogger.com/_6gCAzd7d_bQ/Rlz17LfOgVI/AAAAAAAAAAg/LlbYR7ZAeEQ/s1600-h/Zipf.jpg Check this link]
+||9606||708||1830244||2004-05-11||13:09||This protein has also been identified as the p32 subunit of pre-mRNA splicing factor SF2, as well as a hyaluronic acid-binding protein||
+||9606||708||8262387||2004-05-11||13:09||This protein has also been identified as the p32 subunit of pre-mRNA splicing factor SF2, as well as a hyaluronic acid-binding protein||
+||9606||708||8567680||2004-05-11||13:09||This protein has also been identified as the p32 subunit of pre-mRNA splicing factor SF2, as well as a hyaluronic acid-binding protein||
 
-= Details =
+This way, we can have fast access for the PubMedID field, now stored as integer.
+The database I've created was like this:
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+create table generif (
+id integer primary key,
+ taxID integer,
+geneID integer,
+pmID integer,
+updateDay varchar(20),
+updateHour varchar(8),
+description text
+);
+
+I'm really not that familiar with the 'text' type of field, but I can check it up later in order to see how fast it is. We can later change it to something like "description varchar(300)" for instance, if that's faster.
+
+After that, I parsed the data from generifs_basic and added that to the database, through a the following c++ program:
+{{{
+#include <stdio.h>
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <sqlite3.h>
 
 
+using namespace std;
+
+static int callback(void *NotUsed, int argc, char **argv, char **azColName){
+  int i;
+  for(i=0; i<argc; i++){
+    printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+  }
+  printf("\n");
+  return 0;
+}
+
+int main(){
+  int taxID,geneID,ipubID;
+  char pubID[1000],datestamp[1000],hourstamp[1000],description[1000],pdescription[1100];
+  int count=0;
+  while( scanf("%d%d%s%s%s\t",&taxID,&geneID,pubID,datestamp,hourstamp) !=EOF){
+    gets(description);
+    int start = 0;
+    //    string sdescription (description);
+
+    int shift=0;
+    int pos=0;
+    for(pos=0;description[pos]!=0;pos++){
+      if(description[pos]=='\''){
+	pdescription[pos+shift] = '\'';
+	pdescription[pos+shift+1] = '\'';
+	shift++;
+      }
+      else
+	pdescription[pos+shift] =  description[pos];
+    }
+    pdescription[pos+shift]=0; 
+    
+
+    int comma=0;
+    for(int i=0;pubID[i]!=0;i++){
+      if(pubID[i]==',') comma++;
+    }
+
+    //database
+    sqlite3 *db;
+    char* zErrMsg = 0;
+    int rc = sqlite3_open("genetest",&db);
+    if(rc) {printf("bugged\n");return 0;}
 
 
+    string spubID;
+    spubID += string(pubID);
+    istringstream stream(spubID);
+    int first=1;
+    for(int i=0;i<=comma;i++){
+      if(first){ //first time does not need to get commas
+	first = 0;
+	stream >> ipubID;
+      }
+      else{
+	char dummy;
+	stream >> dummy; //only to read comma
+	stream >> ipubID;
+      }
+
+
+      char temp[2000];
+      
+      sprintf(temp,"insert into generif values(%d , %d , %d , %d, '%s', '%s','%s' )",count++,taxID,geneID,ipubID,datestamp,hourstamp,pdescription);
+      rc = sqlite3_exec(db,temp, callback, 0, &zErrMsg);
+      if( rc!=SQLITE_OK){
+	fprintf(stderr, "SQL error: %s\n",zErrMsg);
+	fprintf(stderr, "Blamed string: %s\n",temp);
+	sqlite3_free(zErrMsg);
+      }
+      //    printf("Here4\n");
+    //      printf("%d %d %d %s %s %s\n",taxID,geneID,ipubID,datestamp,hourstamp,description);
+    }
+    
+    sqlite3_close(db);
+  }
+}
+
+}}}
+
+I can refactor it, if it's going to be necessary.
+
+I used this line to compile the program.
+{{{
+g++ conv.cpp -I /usr/include -lsqlite3 -o convert
+}}}
+
+It warns about a 'gets' dangerous function, but that's only because gets doesn't check buffer for overflow. But the buffer is big enough not to cause anyone troubles.
+Finally, I ran
+{{{
+convert < generifs_basic
+}}}
+
+And, after around 10 minutes, I had a file of about 40MB called genetest, with the whole database parsed.
