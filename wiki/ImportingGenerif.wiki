@@ -154,7 +154,7 @@ http://www.ncbi.nlm.nih.gov/projects/GeneRIF/stats/
 
 === Remarks ====
 
-If the query ( select count(*) from generif) , which is, the number of records, is executed, the result is 203,263.
+If the query ( select count({{{*}}}) from generif) , which is, the number of records, is executed, the result is 203,263.
 
 The number of lines in generifs_basic is 203,235. That's ok, because the records that refered more than one pubMed were just a few, about 30 records, that's why there are more records in the table than generifs_basic's.
 It is just weird that the number of geneRIFs is so different from the number of lines. I thought they should be the same. 
