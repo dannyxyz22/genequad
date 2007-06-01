@@ -1,4 +1,47 @@
 #summary Zipf's Law and GeneRIF
+
 = Zipf's Law =
 
+
+== Introduction == 
+
+In a short sentence, Zif's law states that in a corpus of natural language, the frequency of any word is approximately inversely proportional to its rank sorted in frequency order. This way, the most frequent word will occur roughly proportional to twice as often as the second most frequent word, 
+
+This is useful to how much of geneRIF's database is covered by the n-first genes.
+
+=== What to check? ===
+As asked by Dr. Simon:
+
+ "By querying the database, you can get the following table:
+  geneID, totalNumPub, rankTNP
+ Then, by plotting column 2 against column 3 on a log-log scale, you can see if it is an 1/f kind of curve."
+
+
+== Procedures == 
+
+Only human genes (taxID = 9606) were focused. 
+
+
+
+
+
 [http://bp0.blogger.com/_6gCAzd7d_bQ/Rlz17LfOgVI/AAAAAAAAAAg/LlbYR7ZAeEQ/s1600-h/Zipf.jpg Zipf's Law and GeneRIF]
+
+Originally, Zipf's law stated that, in a corpus of natural language utterances, the frequency of any word is roughly inversely proportional to its rank in the frequency table. So, the most frequent word will occur approximately twice as often as the second most frequent word, which occurs twice as often as the fourth most frequent word, etc. The term has come to be used to refer to any of a family of related power law probability distributions.
+
+
+
+**
+\*
+\\
+\*
+***
+*
+
+`*
+``
+*`
+"*
+ *
+[*]
+[{*}]
