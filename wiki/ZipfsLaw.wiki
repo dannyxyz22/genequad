@@ -3,7 +3,7 @@
 = Zipf's Law =
 
 
-== Introduction == 
+== Introduction ==
 
 In a short sentence, Zif's law states that in a corpus of natural language, the frequency of any word is approximately inversely proportional to its rank sorted in frequency order. This way, the most frequent word will occur roughly proportional to twice as often as the second most frequent word, 
 
@@ -17,7 +17,7 @@ As asked by Dr. Simon:
  Then, by plotting column 2 against column 3 on a log-log scale, you can see if it is an 1/f kind of curve."
 
 
-== Procedures == 
+== Procedures ==
 
 Only human genes (taxID = 9606) were focused. 
 
@@ -72,17 +72,14 @@ ylabel ("Frequency");
 
 Two curves were also plotted in order to watch whether geneRIF's frequencies were some kind of 1/f curve or something different. 
 
-before
-= Results = 
-=Results= 
-== Results == 
-after
+
+== Results ==
 
 The results can be seen here:
 
 [http://bp0.blogger.com/_6gCAzd7d_bQ/Rlz17LfOgVI/AAAAAAAAAAg/LlbYR7ZAeEQ/s1600-h/Zipf.jpg Zipf's Law Plotted Results]
 
-= Conclusions = 
+== Conclusions ==
 
 As it can be seen, additional curves were plotted, which compare geneRIFs with 1/x and 1/sqrt(x). It is clear that geneRIFs have a linear relation (in a log log scale), but it does not seem to be a 1/f kind of curve. GeneRifs seem to be roughly inversely proportional to the square root of the rank.
 So, the frequency of the 2nd most popular gene is about 1/sqrt(2) the number of the most popular - which makes sense, because 808 ~= 1353/sqrt(2) = 956, and not 1353/2 = 676.5.
