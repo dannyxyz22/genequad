@@ -71,9 +71,14 @@ ylabel ("Frequency");
 }}}
 
 Two curves were also plotted in order to watch whether geneRIF's frequencies were some kind of 1/f curve or something different. 
+
+== Results == 
+
 The results can be seen here:
 
 [http://bp0.blogger.com/_6gCAzd7d_bQ/Rlz17LfOgVI/AAAAAAAAAAg/LlbYR7ZAeEQ/s1600-h/Zipf.jpg Zipf's Law Plotted Results]
+
+== Conclusions == 
 
 As it can be seen, additional curves were plotted, which compare geneRIFs with 1/x and 1/sqrt(x). It is clear that geneRIFs have a linear relation (in a log log scale), but it does not seem to be a 1/f kind of curve. GeneRifs seem to be roughly inversely proportional to the square root of the rank.
 So, the frequency of the 2nd most popular gene is about 1/sqrt(2) the number of the most popular - which makes sense, because 808 ~= 1353/sqrt(2) = 956, and not 1353/2 = 676.5.
@@ -82,4 +87,3 @@ Quoting Dr. Simon:
  "The importance of the Zipf's distribution is that only the top genes (kind of) matter. You can try this: take only the top 1000 genes (just about 10% of the total of 10,000 genes) and see what percentage of GeneRIFs it covers. (I guess it is very well above 10%!)"
 
 Indeed it occurs as it is shown in CoverageTests.
-
