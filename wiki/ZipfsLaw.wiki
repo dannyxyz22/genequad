@@ -77,9 +77,8 @@ Two curves were also plotted in order to watch whether geneRIF's frequencies wer
 
 The results can be seen here:
 
-[http://bp0.blogger.com/_6gCAzd7d_bQ/Rlz17LfOgVI/AAAAAAAAAAg/LlbYR7ZAeEQ/s1600-h/Zipf.jpg]
-
-Zipf's Law Plotted Results
+[http://bp0.blogger.com/_6gCAzd7d_bQ/Rlz17LfOgVI/AAAAAAAAAAg/LlbYR7ZAeEQ/s1600-h/Zipf.jpg 
+Zipf's Law Plotted Results]
 
 == Conclusions ==
 
