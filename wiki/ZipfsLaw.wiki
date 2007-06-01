@@ -72,7 +72,11 @@ ylabel ("Frequency");
 
 Two curves were also plotted in order to watch whether geneRIF's frequencies were some kind of 1/f curve or something different. 
 
+before
 = Results = 
+=Results= 
+== Results == 
+after
 
 The results can be seen here:
 
