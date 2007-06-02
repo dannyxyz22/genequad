@@ -146,9 +146,9 @@ http://www.ncbi.nlm.nih.gov/projects/GeneRIF/stats/
 
 === Results ===
 
-||*Number* *of* *geneRIFs* *imported*||*Number of geneRIFs reported by NCBI*||*sql query*||
+|| *Number of geneRIFs imported* || *Number of geneRIFs reported by NCBI* || *sql query* ||
 ||162725||198159||select count(distinct description) from generif||
-||*Number of distinct publications imported*||*Number of distinct publications reported by NCBI*||*sql query*||
+|| *Number of distinct publications imported* || *Number of distinct publications reported by NCBI* || *sql query* ||
 ||141392||137406||select count(distinct pmID) from generif;||
 
 
@@ -172,3 +172,4 @@ which would yield different records in the query "select count(distinct descript
 On the other hand, one gene can have multiple RIFs (sentences), and one RIF can discuss multiple genes. That is why duplicated RIFs might appear.
 
 The number of publications is very close (2.9%).
+
