@@ -52,6 +52,8 @@ Which yielded this result:
 ||1029|| 364||
 ||...|| ...||
 
+The file rule.txt can be found here [http://genequad.googlecode.com/svn/wiki/rule.txt rule.txt].
+
 In [http://www.octave.org/ octave] the data was imported and plotted like this:
 {{{
 A = load rule.txt
@@ -77,7 +79,9 @@ Two curves were also plotted in order to watch whether geneRIF's frequencies wer
 
 The results can be seen here:
 
-[http://bp0.blogger.com/_6gCAzd7d_bQ/Rlz17LfOgVI/AAAAAAAAAAg/LlbYR7ZAeEQ/s1600-h/Zipf.jpg Zipf's Law Plotted Results]
+http://genequad.googlecode.com/svn/wiki/Zipf.jpg
+
+_Figure 1 - Frequency of geneRIF's compared to the rank frequency of the gene in geneRIF's database (log x log scale)_
 
 == Conclusions ==
 
@@ -88,3 +92,10 @@ Quoting Dr. Simon:
  "The importance of the Zipf's distribution is that only the top genes (kind of) matter. You can try this: take only the top 1000 genes (just about 10% of the total of 10,000 genes) and see what percentage of GeneRIFs it covers. (I guess it is very well above 10%!)"
 
 Indeed it occurs as it is shown in CoverageTests.
+
+
+
+
+
+
+
