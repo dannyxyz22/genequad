@@ -7,4 +7,4 @@ ImportingGenerif
 
 ZipfsLaw
 
-CoverageTest
+CoverageTests
