@@ -88,7 +88,32 @@ Modification date:
             the last date a gene record was updated, in YYYYMMDD format
 }}}
 
-As it is a tab delimited file, the same approach as in ImportingGenerif was used. The following C++ program was developed in order to import the data from gene_info ([http://genequad.googlecode.com/svn/wiki/gene_parse.cpp gene_parse.cpp]): 
+As it is a tab delimited file, the same approach as in ImportingGenerif was used. 
+Firstly, the gene_info.db was created. The SQL statement used for that was:
+
+{{{
+create table gene_info (
+id integer primary key,
+ taxID integer,
+geneID integer,
+symbol varchar(25),
+locusTag varchar(25),
+synonyms varchar(25),
+dbXrefs varchar(25),
+chromosome varchar(25),
+mapLocation varchar(25),
+description text,
+typeofGene varchar(25),
+symbolAuthority varchar(25),
+fullNameAuthority varchar(25),
+nomenclatureStatus varchar(25),
+otherDesignations varchar(50),
+date integer);
+}}}
+
+_looking at it now, maybe, a better idea would be to create this table in the same database that had info about the genes and generifs_
+
+The following C++ program was developed in order to import the data from gene_info ([http://genequad.googlecode.com/svn/wiki/gene_parse.cpp gene_parse.cpp]): 
 
 {{{
 
@@ -189,7 +214,19 @@ int main(){
 
 }}}
 
+And it was compiled with: 
+{{{
+g++ gene_parse.cpp -lsqlite3 -o gene_parse
+}}}
 
+It took an Intel(R) Pentium(R) M processor at 1.70GHz around 12 hours to create the whole database. The file gene_info.db is 305MB long. According to Dr. Simon, gene databases can reach up to the Gigabytes barrier. 
+
+After the database was created, a simple query like
+{{{
+select * from gene_info where geneID = 7157;
+}}}
+
+was used to retrieve info for the most frequent human gene reported in GeneRIFs. Another C++ program was created to this task, for the first 20 more frequent genes. Although it is such a simple task, the same program might be extended in order to retrieve info from more than 20 genes. The code for this file ([http://genequad.googlecode.com/svn/wiki/gene_get.cpp gene_get.cpp]) is:
 
 {{{
 #include <fstream>
@@ -269,10 +306,15 @@ int main(){
 
 Again, it was compiled with: 
 {{{
-g++ gene_get.cpp -lsqlite3
+g++ gene_get.cpp -lsqlite3 -o gene_get
 }}}
 
+It was run as:
+{{{
+./gene_get > 20first.txt
+}}}
 
+So, the file with the description of the 20 
 
 === Observations === 
 
