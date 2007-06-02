@@ -1,5 +1,5 @@
+#summary all activities developed during the project are described here
 #labels Featured
-#all activities developed during the project are described here
 
 = Kick-off =
 
