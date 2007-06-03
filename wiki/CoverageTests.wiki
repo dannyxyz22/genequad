@@ -321,22 +321,23 @@ So, the file with the description of the 20 first most popular genes was created
 The idea to count how much geneRIF records was to make a count and limit it to only the first 100 or 500 first records, as we want. The query used was in the _generif_ database: 
 
 {{{
-select count({{{*}}}) from generif where geneID in (select geneID from (select geneID, count({{{*}}}) as number from generif group by geneID having taxID = 9606 order by number DESC LIMIT 100));
+select count(*) from generif where geneID in (select geneID from (select geneID, count(*) as number from generif group by geneID having taxID = 9606 order by number DESC LIMIT 100));
 }}}
 
 To check if this query makes sense, the result limited to only 1 and the number of generifs retrieved by geneID 7157 should be the same. 
 
 So:
 {{{
-select count({{{*}}}) from generif where geneID in (select geneID from (select geneID, count(*) as number from generif group by geneID having taxID = 9606 order by number DESC LIMIT 1)); 
+select count(*) from generif where geneID in (select geneID from (select geneID, count(*) as number from generif group by geneID having taxID = 9606 order by number DESC LIMIT 1)); 
+1353
 }}}
-*1353* 
 
 and
 {{{
-select count({{{*}}}) from generif where geneID = 7157;
+select count(*) from generif where geneID = 7157;
+1353
 }}}
-*1353*
+
 
 Should be the same. And they are!
 
