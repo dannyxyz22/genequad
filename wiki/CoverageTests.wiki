@@ -351,7 +351,7 @@ According to Dr. Simon, these results make sense, since the top one is TP53 a ge
 
 == Covering percentage ==
 
-Since *9984* distinct human genes are available (_select count(distinct geneID) from generif where taxID = 9606;_) in geneRIF and there are *105516* geneRIF records in the same database (_select count({{{*}}}) from generif where taxID = 9606;_), these are the results retrieved from the coverage tests:
+Since *9984* distinct human genes are available (_select count(distinct geneID) from generif where taxID = 9606;_) in geneRIF and there are *105516* geneRIF records describing human genes in the same database (_select count({{{*}}}) from generif where taxID = 9606;_), these are the results retrieved from the coverage tests:
 
 || *Number of genes with highest frequency* || *Number of geneRIFs covered* || *Percentage of human genes covered(%)* ||
 || 1 || 1353 || 1.3 ||
