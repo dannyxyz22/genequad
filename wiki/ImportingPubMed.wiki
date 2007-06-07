@@ -1,0 +1,16 @@
+#this page details how to use bioruby in order to import data from pubmed articles
+
+= Introduction =
+
+Some more information is needed to be retrieved from the geneRIFs: pubMed articles. As geneRIFs point to the pubMedIDs of articles that describe their functions, some data was obtained from NCBI. 
+
+According to Dr. Simon:
+ "For each of the GeneRIF, there is a corresponding pubMed article (indicated by pmID). Using the pmID, we can retrieve the pubMed abstract and related information.
+ 
+ At this moment, I am more interested in getting which year was the article published. The publication date can be retrieved by the esummary utility"
+
+esummary utility is described in this address: http://eutils.ncbi.nlm.nih.gov/entrez/query/static/esummary_help.html
+
+In order to retrieve the data some help from Dr. Kibbe was given: ruby scripts!
+
+= Procedures =
