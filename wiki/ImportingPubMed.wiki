@@ -18,4 +18,31 @@ In order to retrieve the data some help from Dr. Kibbe was given: ruby scripts!
 Data from esummary utility can be retrieved accessing an URL like this:
 http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=16609366&retmode=xml
 
-Instead of writing some script code to retrieve and parse urls like that, a faster approach was used. TODO: describe bioruby
+Instead of writing some script code to retrieve and parse urls like that, a faster approach was used. [http://bioruby.org/ BioRuby] is a project aimed to implement environment for Bioinformatics with Ruby language. Main facilities are provided by [http://bioruby.org/rdoc/classes/Bio/MEDLINE.html Medline] class. It is extremely useful for retrieving data like abstract, date of publication, title, authors and so on from pubMed articles. One way to obtain this data would be through the following ruby script:
+{{{
+#!/usr/bin/env ruby
+require 'bio'
+
+entry = Bio::PubMed.query(11024183)     # searches PubMed and get entry
+medline = Bio::MEDLINE.new(entry) # creates Bio::MEDLINE object from entry text
+reference = medline.reference     # converts into Bio::Reference object
+puts reference.bibtex             # shows BibTeX formatted text
+}}}
+But this function, _Bio::Pubmed.query_ is not as robust as another, _Bio::PubMed.efetch(id)_ , which means, sometimes _Pubmed.query_ returns the right result, and sometimes it just returns an empty query. 
+
+Since the information requested to pubMed was 
+
+pmID
+PubDate
+Source
+ISSN
+# of authors: count the AuthorList
+Title
+
+a list of pmIDs from generif was firstly generated. Only human genes are sought, so a query like the following was run over generif database:
+{{{
+select distinct(pmID) from generif where taxID = 9606;
+}}}
+
+Then, a simple program was used to slice the results in pieces of 200 pmIDs, since more than 77,200 pmIDs were retrieved. Another point in slicing the results is that queries for esummary made through the Bioruby classes end up making http get connections, so, not too much data may be sent.
+Todo describe dummy.cpp as slice.cpp
