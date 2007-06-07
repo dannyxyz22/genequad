@@ -14,3 +14,8 @@ esummary utility is described in this address: http://eutils.ncbi.nlm.nih.gov/en
 In order to retrieve the data some help from Dr. Kibbe was given: ruby scripts!
 
 = Procedures =
+
+Data from esummary utility can be retrieved accessing an URL like this:
+http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=16609366&retmode=xml
+
+Instead of writing some script code to retrieve and parse urls like that, a faster approach was used. TODO: describe bioruby
