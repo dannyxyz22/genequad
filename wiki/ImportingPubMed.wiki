@@ -5,8 +5,7 @@
 Some more information is needed to be retrieved from the geneRIFs: pubMed articles. As geneRIFs point to the pubMedIDs of articles that describe their functions, some data was obtained from NCBI. 
 
 According to Dr. Simon:
- "For each of the GeneRIF, there is a corresponding pubMed article (indicated by pmID). Using the pmID, we can retrieve the pubMed abstract and related information.
- 
+ "For each of the GeneRIF, there is a corresponding pubMed article (indicated by pmID). Using the pmID, we can retrieve the pubMed abstract and related information. 
  At this moment, I am more interested in getting which year was the article published. The publication date can be retrieved by the esummary utility"
 
 esummary utility is described in this address: http://eutils.ncbi.nlm.nih.gov/entrez/query/static/esummary_help.html
@@ -18,7 +17,7 @@ In order to retrieve the data some help from Dr. Kibbe was given: ruby scripts!
 Data from esummary utility can be retrieved accessing an URL like this:
 http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=16609366&retmode=xml
 
-Instead of writing some script code to retrieve and parse urls like that, a faster approach was used. [http://bioruby.org/ BioRuby] is a project aimed to implement environment for Bioinformatics with Ruby language. Main facilities are provided by [http://bioruby.org/rdoc/classes/Bio/MEDLINE.html Medline] class. It is extremely useful for retrieving data like abstract, date of publication, title, authors and so on from pubMed articles. One way to obtain this data would be through the following ruby script:
+Instead of writing some script code to retrieve and parse urls like that, a faster approach was used. [http://bioruby.org/ BioRuby] is a project aimed to implement environment for Bioinformatics with Ruby language. Main facilities are provided by [http://bioruby.org/rdoc/classes/Bio/MEDLINE.html Medline] and PubMed classes. They are extremely useful for retrieving data like abstract, date of publication, title, authors and so on from pubMed articles. One way to obtain this data would be through the following ruby script:
 {{{
 #!/usr/bin/env ruby
 require 'bio'
@@ -30,19 +29,147 @@ puts reference.bibtex             # shows BibTeX formatted text
 }}}
 But this function, _Bio::Pubmed.query_ is not as robust as another, _Bio::PubMed.efetch(id)_ , which means, sometimes _Pubmed.query_ returns the right result, and sometimes it just returns an empty query. 
 
-Since the information requested to pubMed was 
-
+Since the information requested to pubMed was
+{{{
 pmID
 PubDate
 Source
 ISSN
 # of authors: count the AuthorList
 Title
-
-a list of pmIDs from generif was firstly generated. Only human genes are sought, so a query like the following was run over generif database:
+}}}
+a list of pmIDs from generif was firstly generated. All genes are sought, so a query like the following was run over generif database:
 {{{
-select distinct(pmID) from generif where taxID = 9606;
+select distinct(pmID) from generif;
+}}}
+Generating the file out.txt (simple pointing stdout to the file out.txt "sqlite3 gene.db > out.txt").
+
+Then, a simple program was used to slice the results in pieces of 200 pmIDs, since more than 141,000 pmIDs were retrieved. Another point in slicing the results is that queries for esummary made through the Bioruby classes end up making http get connections, so, not too much data may be sent (around 4000 characters).
+
+The simple program to slice ([http://genequad.googlecode.com/svn/wiki/slice.cpp slice.cpp]) files is described here:
+{{{
+#include <stdio.h>
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main(){
+  ifstream in("out.txt");
+  string s;
+  int count=0;
+  int fileID=0;
+  FILE* out = fopen("out0.txt","w");
+
+  while(getline(in,s)){
+    count++;
+    if(count==200){
+      fprintf(out,"%s",(char*)s.c_str());
+      count =0;   
+      char temp[200];
+      sprintf(temp,"out%d.txt",++fileID);
+      out = fopen(temp,"w");      
+    }
+    else{
+      fprintf(out,"%s,",(char*)s.c_str());
+    }
+  }
+  fclose(out);
+}
 }}}
 
-Then, a simple program was used to slice the results in pieces of 200 pmIDs, since more than 77,200 pmIDs were retrieved. Another point in slicing the results is that queries for esummary made through the Bioruby classes end up making http get connections, so, not too much data may be sent.
-Todo describe dummy.cpp as slice.cpp
+After compiling this program and running, 707 files were generated (from out0.txt up to out706.txt). Then, it was time for the ruby script start the action. The script [http://genequad.googlecode.com/svn/wiki/getpmIDs.rb getpmIDs.rb] firstly had a simpler version:
+{{{
+#!/usr/bin/env ruby
+
+require 'bio'
+
+for num in (0..706)
+	sleep(1) #sleeps for one second
+
+	myIDs = File.open("out" +num.to_s+".txt").read
+	puts 'Reading ' + "out" +num.to_s+".txt"
+	myIDs.each{ |line|
+
+		entry = Bio::PubMed.efetch(line.strip)
+		entry.each{ |myEntry|
+		medline = Bio::MEDLINE.new( myEntry )
+		puts medline.pmid
+		puts medline.date
+		puts medline.source
+		puts medline.authors.size
+		puts medline.title
+		puts medline.is
+		puts
+		}
+	}
+end
+}}}
+But it did not work, because some records did not have ISSNs (so nothing was printed in those lines) and some _source_ descriptions had some '\n' in the middle, so, we would not have one field per line. An enhanced version of [http://genequad.googlecode.com/svn/wiki/getpmIDs.rb getpmIDs.rb] was made:
+
+{{{
+#!/usr/bin/env ruby
+
+require 'bio'
+
+for num in (0..706)
+	sleep(1) #sleeps for one second
+
+	myIDs = File.open("out" +num.to_s+".txt").read
+	puts 'Reading ' + "out" +num.to_s+".txt"
+	myIDs.each{ |line|
+
+		entry = Bio::PubMed.efetch(line.strip)
+		entry.each{ |myEntry|
+		medline = Bio::MEDLINE.new( myEntry )
+		puts medline.pmid
+		puts medline.date
+		puts if medline.date.empty?
+		temp = medline.source.gsub(/\n/,'')#removes newlines
+		puts temp
+		puts if temp.empty?
+		puts medline.authors.size
+		puts medline.title
+		puts if medline.title.empty?
+		puts medline.is
+		puts if medline.is.empty?
+		puts
+		}
+	}
+end
+}}}
+This version removes '\n' from source as well as prints an empty line when strings are empty. This way, the processed file may be checked for a multiple of 7 lines (6 for each field and 1 for a blank line between pmIDs). After the script was run (what took about 6 hours), the debug lines had to be chopped of the file (debug lines were like "Reading outN.txt"). 
+
+A simple unix command to remove lines that start with "Reading out" is: 
+{{{
+sed '/^Reading out/d' allPMids.txt > cleanPMids.txt
+}}}
+
+This way, a program to check if the file cleanPMids was created, only checking if it followed the pattern 6 lines, blank line, next record. This program is [http://genequad.googlecode.com/svn/wiki/7.cpp 7.cpp]. If the pattern is not found in any of the records, it just breaks out pointing the line for manual cleanup. The code goes like this:
+{{{
+#include <fstream>
+#include <string>
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main(){
+  ifstream in("pubMedsClean.txt");
+  string s;
+  int count=0;
+
+  while(getline(in,s)){
+    count++;
+    if(count%7==0){
+      if(s!=""){
+	printf("Breaking in line %d\n",count);
+	break;
+      }
+    }
+
+  }
+}
+}}}
+
+TODO describe if manual adjustments were needed and program to insert into sql.
