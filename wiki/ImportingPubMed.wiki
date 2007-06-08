@@ -257,3 +257,20 @@ int main(){
   sqlite3_close(db);
 }
 }}}
+
+= Validation =
+
+One way to validate the results is to run the same query for distinct pmIDs in both tables  and expect the same answer:
+
+{{{
+sqlite> select count(distinct(pmID)) from generif;
+141392
+sqlite> select count(distinct(pmID)) from pubmed;
+141392
+}}}
+
+If they are different - as happened the first time this query was done - one might need to query for which pmIDs are missing:
+{{{
+select generif.pmID from generif  where generif.pmID not in(select distinct pubmed.pmID from pubmed);
+}}}
+And repeat the slicing procedure for these records. Around 200 records needed to be re-queried in the first time this import was done.
