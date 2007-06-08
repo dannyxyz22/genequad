@@ -5,7 +5,7 @@
 
 == Introduction ==
 
-In a short sentence, Zif's law states that in a corpus of natural language, the frequency of any word is approximately inversely proportional to its rank sorted in frequency order. This way, the most frequent word will occur roughly proportional to twice as often as the second most frequent word, 
+In a short sentence, Zipf's law states that in a corpus of natural language, the frequency of any word is approximately inversely proportional to its rank sorted in frequency order. This way, the most frequent word will occur roughly proportional to twice as often as the second most frequent word, 
 
 This is useful to know how much of geneRIF's database is covered by the n-first genes.
 
@@ -92,7 +92,6 @@ Quoting Dr. Simon:
  "The importance of the Zipf's distribution is that only the top genes (kind of) matter. You can try this: take only the top 1000 genes (just about 10% of the total of 10,000 genes) and see what percentage of GeneRIFs it covers. (I guess it is very well above 10%!)"
 
 Indeed it occurs as it is shown in CoverageTests.
-
 
 
 
