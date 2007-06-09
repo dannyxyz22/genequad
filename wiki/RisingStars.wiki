@@ -12,7 +12,7 @@ Add your content here.
 
 == Rising Stars ==
 
-||*GeneID*||*Shift*||
+|| *GeneID* || *Shift* ||
 ||60489||+2169||
 ||11315||+2132||
 ||9656||+1972||
@@ -43,5 +43,6 @@ Add your content here.
 ||7430||+1744||
 ||1909||+1744||
 ||6366||+1744||
+_2003 Rising Stars_
 
 == Show stoppers ==
