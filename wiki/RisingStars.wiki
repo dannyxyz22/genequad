@@ -1,14 +1,6 @@
-#this page details how to find out which genes had a significant change in rank along the years
+#this page shows the genes with highest percentage change from year to year
 
-= Introduction =
-
-Add your content here.
-
-
-= Procedures =
-
-
-= Results =
+_DetailsRisingStars details how they were found_
 
 == Rising Stars ==
 
