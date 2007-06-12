@@ -37,28 +37,32 @@ _DetailsRisingStars details how they were found_
 
 === 2005 Rising Stars ===
 
-||*GeneID* || *Percentage shift(%)* || *Rank in 2004* || *Rank in 2005* || *GeneRIFs in 2004* || *GeneRIFs in 2005* ||
-||  1401||+0.13||  144||   38||   19||   47||
-||  1432||+0.12||   89||   26||   27||   53||
-||120892||+0.11|| 1265||   95||    3||   27||
-||   627||+0.11||  267||   62||   12||   36||
-||  2908||+0.10||  340||   75||   10||   32||
-||  7124||+0.10||    3||    2||  144||  175||
-|| 26191||+0.10|| 1265||  108||    3||   24||
-||  3717||+0.10||  966||  104||    4||   25||
-||   207||+0.10||   42||   15||   42||   65||
-||  3106||+0.08||  340||   95||   10||   27||
-||  3265||+0.07||  464||  108||    8||   24||
-||  9429||+0.07||  340||   97||   10||   26||
-||  1499||+0.07||   82||   46||   28||   45||
-||  2263||+0.07||  654||  138||    6||   21||
-||  4879||+0.07||  464||  116||    8||   23||
-||  3077||+0.07||  195||   81||   15||   30||
-||  4153||+0.06||  544||  138||    7||   21||
-||  1387||+0.06||  395||  116||    9||   23||
-||  4193||+0.06||   89||   52||   27||   42||
-||  4609||+0.06||   66||   38||   32||   47||
-||  6532||+0.06||   65||   37||   33||   48||
-||  1956||+0.06||    9||    7||   82||  100||
-||  3690||+0.06||  101||   59||   25||   39||
-||  2475||+0.06||  182||   85||   16||   29||
+|| *GeneID* || *Percentage shift(%)* || *Rank in 2004* || *Rank in 2005* || *GeneRIFs in 2004* || *GeneRIFs in 2005* || *Gene description* ||
+388281|9606|6934|TCF7L2|RP11-357H24.1|TCF-4|TCF4|HGNC:11641|MIM:602228|HPRD:03751|10|10q25.3|transcription factor 7-like 2 (T-cell specific, HMG-box)|protein-coding|TCF7L2|transcription factor 7-like 2 (T-cell specific, HMG-box)|O|-|20070518
+[baggio@localhost soc]$ g++ rising_get.cpp -lsqlite3te3
+[baggio@localhost soc]$ ./a.out < star2005.txt 
+||  1401||+0.13||  144||   38||   19||   47||C-reactive protein, pentraxin-related||
+||  1432||+0.12||   89||   26||   27||   53||mitogen-activated protein kinase 14||
+||120892||+0.11|| 1265||   95||    3||   27||leucine-rich repeat kinase 2||
+||   627||+0.11||  267||   62||   12||   36||brain-derived neurotrophic factor||
+||  2908||+0.10||  340||   75||   10||   32||nuclear receptor subfamily 3, group C, member 1 (glucocorticoid receptor)||
+||  7124||+0.10||    3||    2||  144||  175||tumor necrosis factor (TNF superfamily, member 2)||
+|| 26191||+0.10|| 1265||  108||    3||   24||protein tyrosine phosphatase, non-receptor type 22 (lymphoid)||
+||  3717||+0.10||  966||  104||    4||   25||Janus kinase 2 (a protein tyrosine kinase)||
+||   207||+0.10||   42||   15||   42||   65||v-akt murine thymoma viral oncogene homolog 1||
+||  3106||+0.08||  340||   95||   10||   27||major histocompatibility complex, class I, B||
+||  3265||+0.07||  464||  108||    8||   24||v-Ha-ras Harvey rat sarcoma viral oncogene homolog||
+||  9429||+0.07||  340||   97||   10||   26||ATP-binding cassette, sub-family G (WHITE), member 2||
+||  1499||+0.07||   82||   46||   28||   45||catenin (cadherin-associated protein), beta 1, 88kDa||
+||  2263||+0.07||  654||  138||    6||   21||fibroblast growth factor receptor 2 (bacteria-expressed kinase, keratinocyte growth factor receptor, craniofacial dysostosis 1, Crouzon syndrome, Pfeiffer syndrome, Jackson-Weiss syndrome)||
+||  4879||+0.07||  464||  116||    8||   23||natriuretic peptide precursor B||
+||  3077||+0.07||  195||   81||   15||   30||hemochromatosis||
+||  4153||+0.06||  544||  138||    7||   21||mannose-binding lectin (protein C) 2, soluble (opsonic defect)||
+||  1387||+0.06||  395||  116||    9||   23||CREB binding protein (Rubinstein-Taybi syndrome)||
+||  4193||+0.06||   89||   52||   27||   42||Mdm2, transformed 3T3 cell double minute 2, p53 binding protein (mouse)||
+||  4609||+0.06||   66||   38||   32||   47||v-myc myelocytomatosis viral oncogene homolog (avian)||
+||  6532||+0.06||   65||   37||   33||   48||solute carrier family 6 (neurotransmitter transporter, serotonin), member 4||
+||  1956||+0.06||    9||    7||   82||  100||epidermal growth factor receptor (erythroblastic leukemia viral (v-erb-b) oncogene homolog, avian)||
+||  3690||+0.06||  101||   59||   25||   39||integrin, beta 3 (platelet glycoprotein IIIa, antigen CD61)||
+||  2475||+0.06||  182||   85||   16||   29||FK506 binding protein 12-rapamycin associated protein 1||
+||  5290||+0.06||  792||  193||    5||   17||phosphoinositide-3-kinase, catalytic, alpha polypeptide||
