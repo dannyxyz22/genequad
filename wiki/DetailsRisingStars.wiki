@@ -2,12 +2,9 @@
 
 = Introduction =
 
-Add your content here.
+A key information that may be retrieved from imported databases is which genes have had some importance increase along the last years. After testing several ways to detect these genes, a simple approach was made, based on the percentage of geneRIFs that were published about each gene, according to the related pubMed article.
 
 
 = Procedures =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Firstly, geneRIF ( ImportingGenerif ) and pubMed (ImportingPubMed) were imported.
