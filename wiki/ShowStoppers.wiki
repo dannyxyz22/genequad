@@ -1,0 +1,154 @@
+#summary this page shows which genes had significant decrease in percentage of total articles for each year
+
+= ShowStoppers =
+
+_as of May, 2007_
+
+== 2007 Show Stoppers ==
+
+|| *GeneID* || *Percentage change(%)* || *Rank in 2005* || *Rank in 2006* || *GeneRIFS in 2005* || *GeneRIFS in 2006* || *Gene description* ||
+||  7124||-0.21||    3||    7||  136||   23||tumor necrosis factor (TNF superfamily, member 2)||
+||   672||-0.18||   24||  155||   58||    5||breast cancer 1, early onset||
+||  5243||-0.13||   17||   61||   64||    9||ATP-binding cassette, sub-family B (MDR/TAP), member 1||
+||  1029||-0.13||   10||   31||   79||   13||cyclin-dependent kinase inhibitor 2A (melanoma, p16, inhibits CDK4)||
+||  4137||-0.13||   18||   61||   63||    9||microtubule-associated protein tau||
+||  3075||-0.12||   58||  326||   37||    3||complement factor H||
+||  7422||-0.11||    4||    4||  128||   26||vascular endothelial growth factor A||
+||  6622||-0.11||   28||   74||   55||    8||synuclein, alpha (non A4 component of amyloid precursor)||
+||   472||-0.11||   35||   93||   51||    7||ataxia telangiectasia mutated (includes complementation groups A, C and D)||
+||  5594||-0.11||   35||   93||   51||    7||mitogen-activated protein kinase 1||
+||  7040||-0.10||    6||    9||  109||   22||transforming growth factor, beta 1||
+||192343||-0.10||    2||    2||  192||   43||Record to support submission of GeneRIFs for a gene not in Entrez Gene (human; man).||
+||  5428||-0.10||  136|| 2536||   21||    0||polymerase (DNA directed), gamma||
+||  3106||-0.09||  145|| 2536||   20||    0||major histocompatibility complex, class I, B||
+||  6714||-0.09||   78||  326||   31||    3||v-src sarcoma (Schmidt-Ruppin A-2) viral oncogene homolog (avian)||
+||  8626||-0.09||   78||  326||   31||    3||tumor protein p73-like||
+||  1499||-0.08||   29||   61||   54||    9||catenin (cadherin-associated protein), beta 1, 88kDa||
+||   154||-0.08||   50||  120||   42||    6||adrenergic, beta-2-, receptor, surface||
+||  8743||-0.08||   86||  326||   30||    3||tumor necrosis factor (ligand) superfamily, member 10||
+||   613||-0.08||  108||  530||   26||    2||breakpoint cluster region||
+||   682||-0.08||  172|| 2536||   18||    0||basigin (Ok blood group)||
+||  4609||-0.08||   38||   74||   49||    8||v-myc myelocytomatosis viral oncogene homolog (avian)||
+||   595||-0.08||   44||   93||   45||    7||cyclin D1||
+|| 64127||-0.08||   71||  207||   33||    4||nucleotide-binding oligomerization domain containing 2||
+||  5925||-0.08||   90||  326||   29||    3||retinoblastoma 1 (including osteosarcoma)||
+
+== 2006 Show Stoppers ==
+
+|| *GeneID* || *Percentage change(%)* || *Rank in 2005* || *Rank in 2006* || *GeneRIFS in 2005* || *GeneRIFS in 2006* || *Gene description* ||
+||  7124||-0.20||    2||    3||  175||  136||tumor necrosis factor (TNF superfamily, member 2)||
+||  1026||-0.12||   13||   44||   69||   45||cyclin-dependent kinase inhibitor 1A (p21, Cip1)||
+||  3952||-0.12||   20||   65||   58||   34||leptin (obesity homolog, mouse)||
+||  2099||-0.10||    9||   11||   95||   77||estrogen receptor 1||
+||  1027||-0.09||   42||  106||   46||   27||cyclin-dependent kinase inhibitor 1B (p27, Kip1)||
+||  5925||-0.09||   38||   90||   47||   29||retinoblastoma 1 (including osteosarcoma)||
+||  3576||-0.09||   12||   29||   71||   54||interleukin 8||
+||  4790||-0.09||    5||    8||  102||   86||nuclear factor of kappa light polypeptide gene enhancer in B-cells 1 (p105)||
+||  2153||-0.09||   75||  243||   32||   14||coagulation factor V (proaccelerin, labile factor)||
+||  1636||-0.09||   16||   44||   62||   45||angiotensin I converting enzyme (peptidyl-dipeptidase A) 1||
+||   142||-0.08||   85||  290||   29||   12||poly (ADP-ribose) polymerase family, member 1||
+||  3458||-0.08||   24||   57||   54||   38||interferon, gamma||
+||  5054||-0.08||   49||   95||   44||   28||serpin peptidase inhibitor, clade E (nexin, plasminogen activator inhibitor type 1), member 1||
+||  2247||-0.08||   62||  145||   36||   20||fibroblast growth factor 2 (basic)||
+||  3569||-0.08||    8||    9||   97||   83||interleukin 6 (interferon, beta 2)||
+||   596||-0.07||   20||   48||   58||   44||B-cell CLL/lymphoma 2||
+||  2155||-0.07||  138||  706||   21||    6||coagulation factor VII (serum prothrombin conversion accelerator)||
+||  6774||-0.07||   33||   61||   49||   35||signal transducer and activator of transcription 3 (acute-phase response factor)||
+||  3690||-0.07||   59||  111||   39||   25||integrin, beta 3 (platelet glycoprotein IIIa, antigen CD61)||
+||   177||-0.07||  138||  589||   21||    7||advanced glycosylation end product-specific receptor||
+||  2263||-0.07||  138||  589||   21||    7||fibroblast growth factor receptor 2 (bacteria-expressed kinase, keratinocyte growth factor receptor, craniofacial dysostosis 1, Crouzon syndrome, Pfeiffer syndrome, Jackson-Weiss syndrome)||
+||  3688||-0.07||   46||   75||   45||   32||integrin, beta 1 (fibronectin receptor, beta polypeptide, antigen CD29 includes MDF2, MSK12)||
+||  6387||-0.07||   55||   95||   41||   28||chemokine (C-X-C motif) ligand 12 (stromal cell-derived factor 1)||
+||  3725||-0.06||   69||  136||   34||   21||jun oncogene||
+||  5663||-0.06||   75||  159||   32||   19||presenilin 1 (Alzheimer disease 3)||
+
+
+== 2005 Show Stoppers ==
+
+|| *GeneID* || *Percentage change(%)* || *Rank in 2004* || *Rank in 2005* || *GeneRIFS in 2004* || *GeneRIFS in 2005* || *Gene description* ||
+||  7422||-0.22||    2||    3||  152||  117||vascular endothelial growth factor A||
+||  3479||-0.13||   12||   33||   72||   49||insulin-like growth factor 1 (somatomedin C)||
+||  5594||-0.13||   22||   62||   59||   36||mitogen-activated protein kinase 1||
+||   348||-0.12||   10||   18||   79||   60||apolipoprotein E||
+||  1437||-0.11||   93|| 1037||   26||    4||colony stimulating factor 2 (granulocyte-macrophage)||
+||  1029||-0.10||   13||   26||   69||   53||cyclin-dependent kinase inhibitor 2A (melanoma, p16, inhibits CDK4)||
+||  2944||-0.09||   52||  131||   38||   22||glutathione S-transferase M1||
+||   472||-0.08||   47||   97||   41||   26||ataxia telangiectasia mutated (includes complementation groups A, C and D)||
+||  3553||-0.08||   14||   28||   65||   52||interleukin 1, beta||
+||  3082||-0.08||   42||   90||   42||   28||hepatocyte growth factor (hepapoietin A; scatter factor)||
+||  1869||-0.08||   93||  327||   26||   11||E2F transcription factor 1||
+||  6401||-0.08||  115||  487||   23||    8||selectin E (endothelial adhesion molecule 1)||
+||  2100||-0.08||   33||   62||   49||   36||estrogen receptor 2 (ER beta)||
+||  6403||-0.08||  144|| 1037||   19||    4||selectin P (granule membrane protein 140kDa, antigen CD62)||
+||  4842||-0.08||  168|| 1856||   17||    2||nitric oxide synthase 1 (neuronal)||
+||  3815||-0.07||   54||  108||   37||   24||v-kit Hardy-Zuckerman 4 feline sarcoma viral oncogene homolog||
+||  5879||-0.07||   82||  226||   28||   15||ras-related C3 botulinum toxin substrate 1 (rho family, small GTP binding protein Rac1)||
+||   367||-0.07||   26||   42||   57||   46||androgen receptor (dihydrotestosterone receptor; testicular feminization; spinal and bulbar muscular atrophy; Kennedy disease)||
+||  5743||-0.07||    4||    6||  108||  101||prostaglandin-endoperoxide synthase 2 (prostaglandin G/H synthase and cyclooxygenase)||
+||  4254||-0.07||  158||  822||   18||    5||KIT ligand||
+||   841||-0.07||   72||  166||   31||   19||caspase 8, apoptosis-related cysteine peptidase||
+||  6256||-0.07||  243|| 5284||   13||    0||retinoid X receptor, alpha||
+||  3565||-0.06||   55||  104||   36||   25||interleukin 4||
+||    19||-0.06||   66||  138||   32||   21||ATP-binding cassette, sub-family A (ABC1), member 1||
+||  7298||-0.06||  135||  418||   20||    9||thymidylate synthetase||
+
+
+
+== 2004 Show Stoppers ==
+
+|| *GeneID* || *Percentage change(%)* || *Rank in 2003* || *Rank in 2004* || *GeneRIFS in 2003* || *GeneRIFS in 2004* || *Gene description* ||
+||  7157||-0.24||    1||    1||  259||  231||tumor protein p53 (Li-Fraumeni syndrome)||
+||  5468||-0.16||    8||   29||   77||   51||peroxisome proliferator-activated receptor gamma||
+||  3569||-0.12||    4||    8||  101||   85||interleukin 6 (interferon, beta 2)||
+||  7015||-0.11||   12||   31||   67||   50||telomerase reverse transcriptase||
+||  7428||-0.10||   70||  267||   30||   12||von Hippel-Lindau tumor suppressor||
+||   595||-0.09||   30||   66||   47||   32||cyclin D1||
+||   133||-0.09||   78||  267||   28||   12||adrenomedullin||
+||  5444||-0.09||   55||  158||   33||   18||paraoxonase 1||
+||  3690||-0.09||   41||  101||   39||   25||integrin, beta 3 (platelet glycoprotein IIIa, antigen CD61)||
+||    25||-0.09||  101||  395||   24||    9||v-abl Abelson murine leukemia viral oncogene homolog 1||
+||  1234||-0.08||   45||  101||   38||   25||chemokine (C-C motif) receptor 5||
+||  1571||-0.08||  116||  544||   21||    7||cytochrome P450, family 2, subfamily E, polypeptide 1||
+||   960||-0.08||   65||  158||   31||   18||CD44 molecule (Indian blood group)||
+||  7124||-0.08||    2||    3||  148||  144||tumor necrosis factor (TNF superfamily, member 2)||
+||  3952||-0.08||   11||   24||   68||   58||leptin (obesity homolog, mouse)||
+||   672||-0.08||   13||   27||   65||   55||breast cancer 1, early onset||
+||  3688||-0.08||   26||   51||   50||   39||integrin, beta 1 (fibronectin receptor, beta polypeptide, antigen CD29 includes MDF2, MSK12)||
+||  5175||-0.07||  116||  464||   21||    8||platelet/endothelial cell adhesion molecule (CD31 antigen)||
+||  6772||-0.07||   70||  158||   30||   18||signal transducer and activator of transcription 1, 91kDa||
+||  3077||-0.07||   84||  195||   27||   15||hemochromatosis||
+||  3135||-0.07||   84||  195||   27||   15||HLA-G histocompatibility antigen, class I, G||
+||  1756||-0.07||  187|| 1265||   15||    3||dystrophin (muscular dystrophy, Duchenne and Becker types)||
+||  4292||-0.06||   49||   93||   36||   26||mutL homolog 1, colon cancer, nonpolyposis type 2 (E. coli)||
+||  5054||-0.06||   27||   49||   49||   40||serpin peptidase inhibitor, clade E (nexin, plasminogen activator inhibitor type 1), member 1||
+||  1027||-0.06||   33||   55||   45||   36||cyclin-dependent kinase inhibitor 1B (p27, Kip1)||
+
+
+== 2003 Show Stoppers ==
+
+|| *GeneID* || *Percentage change(%)* || *Rank in 2002* || *Rank in 2003* || *GeneRIFS in 2002* || *GeneRIFS in 2003* || *Gene description* ||
+||  7124||-0.17||    2||    2||  167||  148||tumor necrosis factor (TNF superfamily, member 2)||
+||   355||-0.16||   10||   30||   71||   47||Fas (TNF receptor superfamily, member 6)||
+||  1029||-0.13||    6||   22||   74||   56||cyclin-dependent kinase inhibitor 2A (melanoma, p16, inhibits CDK4)||
+||   596||-0.11||    8||   21||   73||   57||B-cell CLL/lymphoma 2||
+||   581||-0.11||   27||   60||   49||   32||BCL2-associated X protein||
+||  3458||-0.11||   16||   33||   61||   45||interferon, gamma||
+||  3553||-0.09||   15||   27||   62||   49||interleukin 1, beta||
+||  5663||-0.08||   54||  132||   33||   20||presenilin 1 (Alzheimer disease 3)||
+||  3689||-0.08||   57||  141||   32||   19||integrin, beta 2 (complement component 3 receptor 3 and 4 subunit)||
+||  3479||-0.08||   17||   27||   60||   49||insulin-like growth factor 1 (somatomedin C)||
+||   959||-0.08||   68||  187||   28||   15||CD40 ligand (TNF superfamily, member 5, hyper-IgM syndrome)||
+||  4982||-0.07||  102||  363||   21||    9||tumor necrosis factor receptor superfamily, member 11b (osteoprotegerin)||
+||  1493||-0.07||   54||  111||   33||   22||cytotoxic T-lymphocyte-associated protein 4||
+||  2152||-0.07||   63||  141||   30||   19||coagulation factor III (thromboplastin, tissue factor)||
+||  5243||-0.07||   33||   55||   43||   33||ATP-binding cassette, sub-family B (MDR/TAP), member 1||
+||  3685||-0.07||   74||  187||   26||   15||integrin, alpha V (vitronectin receptor, alpha polypeptide, antigen CD51)||
+||  6667||-0.07||   38||   73||   39||   29||Sp1 transcription factor||
+||   940||-0.07||   97||  276||   22||   11||CD28 molecule||
+||  1636||-0.07||   26||   39||   51||   42||angiotensin I converting enzyme (peptidyl-dipeptidase A) 1||
+||  3119||-0.07||  102||  318||   21||   10||major histocompatibility complex, class II, DQ beta 1||
+||  1565||-0.07||  114||  363||   20||    9||cytochrome P450, family 2, subfamily D, polypeptide 6||
+||  4261||-0.07||  173||  883||   15||    4||class II, major histocompatibility complex, transactivator||
+|| 11132||-0.07||  173||  883||   15||    4||calpain 10||
+||  3043||-0.06||   93||  225||   23||   13||hemoglobin, beta||
+||  7412||-0.06||   97||  248||   22||   12||vascular cell adhesion molecule 1||
