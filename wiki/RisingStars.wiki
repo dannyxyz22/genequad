@@ -1,4 +1,4 @@
-#this page shows the genes with highest percentage change from year to year
+#summary this page shows the genes with highest percentage change from year to year
 
 _DetailsRisingStars details how they were found_
 
@@ -6,7 +6,7 @@ _DetailsRisingStars details how they were found_
 
 === 2006 Rising Stars ===
 
-||*GeneID* || *Percentage shift* || *Rank in 2005* || *Rank in 2006* || *GeneRIFS in 2005* || *GeneRIFS in 2006* ||
+||*GeneID* || *Percentage change(%)* || *Rank in 2005* || *Rank in 2006* || *GeneRIFS in 2005* || *GeneRIFS in 2006* ||
 ||192343||+0.84||  327||    2||   11||  192||
 ||  7157||+0.20||    1||    1||  239||  290||
 ||  3075||+0.12||  364||   58||   10||   37||
