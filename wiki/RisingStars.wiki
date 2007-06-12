@@ -5,6 +5,7 @@ _DetailsRisingStars details how they were found_
 == Rising Stars ==
 
 === 2007 Rising Stars ===
+_as of May, 2007_
 
 || *GeneID* || *Percentage change(%)* || *Rank in 2006* || *Rank in 2007* || *GeneRIFS in 2006* || *GeneRIFS in 2007* || *Gene description* ||
 ||  3725||+0.16||  136||   24||   21||   14||jun oncogene||
