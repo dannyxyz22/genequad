@@ -38,9 +38,6 @@ _DetailsRisingStars details how they were found_
 === 2005 Rising Stars ===
 
 || *GeneID* || *Percentage shift(%)* || *Rank in 2004* || *Rank in 2005* || *GeneRIFs in 2004* || *GeneRIFs in 2005* || *Gene description* ||
-388281|9606|6934|TCF7L2|RP11-357H24.1|TCF-4|TCF4|HGNC:11641|MIM:602228|HPRD:03751|10|10q25.3|transcription factor 7-like 2 (T-cell specific, HMG-box)|protein-coding|TCF7L2|transcription factor 7-like 2 (T-cell specific, HMG-box)|O|-|20070518
-[baggio@localhost soc]$ g++ rising_get.cpp -lsqlite3te3
-[baggio@localhost soc]$ ./a.out < star2005.txt 
 ||  1401||+0.13||  144||   38||   19||   47||C-reactive protein, pentraxin-related||
 ||  1432||+0.12||   89||   26||   27||   53||mitogen-activated protein kinase 14||
 ||120892||+0.11|| 1265||   95||    3||   27||leucine-rich repeat kinase 2||
@@ -66,3 +63,61 @@ _DetailsRisingStars details how they were found_
 ||  3690||+0.06||  101||   59||   25||   39||integrin, beta 3 (platelet glycoprotein IIIa, antigen CD61)||
 ||  2475||+0.06||  182||   85||   16||   29||FK506 binding protein 12-rapamycin associated protein 1||
 ||  5290||+0.06||  792||  193||    5||   17||phosphoinositide-3-kinase, catalytic, alpha polypeptide||
+
+=== 2004 Rising Stars ===
+
+|| *GeneID* || *Percentage shift(%)* || *Rank in 2003* || *Rank in 2004* || *GeneRIFs in 2003* || *GeneRIFs in 2004* || *Gene description* ||
+||  4790||+0.15||   15||    5||   64||   99||nuclear factor of kappa light polypeptide gene enhancer in B-cells 1 (p105)||
+||  7422||+0.14||    3||    2||  115||  152||vascular endothelial growth factor A||
+||  3479||+0.10||   27||   12||   49||   72||insulin-like growth factor 1 (somatomedin C)||
+||  4137||+0.09||   92||   36||   25||   45||microtubule-associated protein tau||
+||  3815||+0.09||  146||   54||   18||   37||v-kit Hardy-Zuckerman 4 feline sarcoma viral oncogene homolog||
+||  3791||+0.09||  318||   82||   10||   28||kinase insert domain receptor (a type III receptor tyrosine kinase)||
+||   351||+0.09||   37||   16||   43||   63||amyloid beta (A4) precursor protein (peptidase nexin-II, Alzheimer disease)||
+||  7097||+0.08||  106||   47||   23||   41||toll-like receptor 2||
+||  2100||+0.08||   65||   33||   31||   49||estrogen receptor 2 (ER beta)||
+||   207||+0.08||   92||   42||   25||   42||v-akt murine thymoma viral oncogene homolog 1||
+||  4982||+0.07||  363||  110||    9||   24||tumor necrosis factor receptor superfamily, member 11b (osteoprotegerin)||
+||  3082||+0.07||   91||   42||   26||   42||hepatocyte growth factor (hepapoietin A; scatter factor)||
+||  4846||+0.07||   37||   20||   43||   60||nitric oxide synthase 3 (endothelial cell)||
+||  5925||+0.07||  141||   61||   19||   34||retinoblastoma 1 (including osteosarcoma)||
+||  2056||+0.06||  363||  119||    9||   22||erythropoietin||
+||  3553||+0.06||   27||   14||   49||   65||interleukin 1, beta||
+|| 51738||+0.06||   78||   42||   28||   42||ghrelin/obestatin preprohormone||
+||  6401||+0.06||  276||  115||   11||   23||selectin E (endothelial adhesion molecule 1)||
+||   598||+0.06||  202||   93||   14||   26||BCL2-like 1||
+||   578||+0.06|| 1617||  243||    2||   13||BCL2-antagonist/killer 1||
+||  2952||+0.05||  180||   82||   16||   28||glutathione S-transferase theta 1||
+||  3350||+0.05|| 1150||  218||    3||   14||5-hydroxytryptamine (serotonin) receptor 1A||
+||    19||+0.05||  132||   66||   20||   32||ATP-binding cassette, sub-family A (ABC1), member 1||
+||   285||+0.05||  503||  158||    7||   18||angiopoietin 2||
+||  4254||+0.05||  503||  158||    7||   18||KIT ligand||
+
+=== 2003 Rising Stars ===
+
+|| *GeneID* || *Percentage shift(%)* || *Rank in 2002* || *Rank in 2003* || *GeneRIFs in 2002* || *GeneRIFs in 2003* || *Gene description* ||
+||  9370||+0.21||  239||   25||   12||   51||adiponectin, C1Q and collagen domain containing||
+||   673||+0.14|| 1523||   84||    2||   27||v-raf murine sarcoma viral oncogene homolog B1||
+||  5743||+0.10||    6||    5||   74||   97||prostaglandin-endoperoxide synthase 2 (prostaglandin G/H synthase and cyclooxygenase)||
+||  7099||+0.09||   97||   40||   22||   40||toll-like receptor 4||
+||  5468||+0.09||   20||    8||   57||   77||peroxisome proliferator-activated receptor gamma||
+|| 60489||+0.09|| 2334||  165||    1||   17||apolipoprotein B mRNA editing enzyme, catalytic polypeptide-like 3G||
+||  3480||+0.08||  239||   78||   12||   28||insulin-like growth factor 1 receptor||
+|| 51738||+0.08||  239||   78||   12||   28||ghrelin/obestatin preprohormone||
+|| 64127||+0.08||  190||   70||   14||   30||nucleotide-binding oligomerization domain containing 2||
+||  4790||+0.08||   28||   15||   46||   64||nuclear factor of kappa light polypeptide gene enhancer in B-cells 1 (p105)||
+||  7157||+0.08||    1||    1||  229||  259||tumor protein p53 (Li-Fraumeni syndrome)||
+||  1571||+0.08||  556||  116||    6||   21||cytochrome P450, family 2, subfamily E, polypeptide 1||
+||  3162||+0.08||   97||   45||   22||   38||heme oxygenase (decycling) 1||
+||  5970||+0.08||  300||   92||   10||   25||v-rel reticuloendotheliosis viral oncogene homolog A, nuclear factor of kappa light polypeptide gene enhancer in B-cells 3, p65 (avian)||
+||   142||+0.08||  834||  146||    4||   18||poly (ADP-ribose) polymerase family, member 1||
+||  4292||+0.07||  102||   49||   21||   36||mutL homolog 1, colon cancer, nonpolyposis type 2 (E. coli)||
+||  3569||+0.07||    5||    4||   82||  101||interleukin 6 (interferon, beta 2)||
+|| 11315||+0.07|| 2334||  202||    1||   14||Parkinson disease (autosomal recessive, early onset) 7||
+||  5444||+0.07||  120||   55||   19||   33||paraoxonase 1||
+||  1017||+0.07||  672||  146||    5||   18||cyclin-dependent kinase 2||
+||  4089||+0.07||  300||  106||   10||   23||SMAD family member 4||
+||  4233||+0.07||  239||   92||   12||   25||met proto-oncogene (hepatocyte growth factor receptor)||
+||  3135||+0.07||  190||   84||   14||   27||HLA-G histocompatibility antigen, class I, G||
+||   133||+0.07||  173||   78||   15||   28||adrenomedullin||
+||  6622||+0.07||   60||   33||   31||   45||synuclein, alpha (non A4 component of amyloid precursor)||
