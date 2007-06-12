@@ -7,4 +7,38 @@ A key information that may be retrieved from imported databases is which genes h
 
 = Procedures =
 
-Firstly, geneRIF ( ImportingGenerif ) and pubMed (ImportingPubMed) were imported.
+Firstly, geneRIF (ImportingGenerif) and pubMed (ImportingPubMed) databases were imported to the same _gene.db_ file. One might notice that each geneRIF points to a pubMed article that describes the geneRIF in more detail. The publication date of this article was used to retrieve information on which year the geneRIF was being studied. This way, the number of geneRIFs about each gene were counted, classified by year. 
+
+In order to get the number of geneRIFs, by year, the following SQL query was used:
+
+{{{
+select geneID, count(*) as number from generif,pubmed where taxID=9606 and generif.pmID = pubmed.pmID and pubDate like '2006%' group by geneID order by number DESC;
+}}}
+
+This query obtains the counts for the year 2006. The output of this query looks like this:
+
+{{{
+(geneID | number of generifs for that year):
+7157|290
+192343|192
+7124|136
+7422|128
+1956|117
+7040|109
+5743|108
+4790|86
+3569|83
+1029|79
+2099|77
+4318|75
+3091|74
+207|70
+351|70
+5468|67
+5243|64
+348|63
+3586|63
+4137|63
+...
+}}}
+
