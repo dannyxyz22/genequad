@@ -6,7 +6,7 @@ _as of May, 2007_
 
 == 2007 Show Stoppers ==
 
-|| *GeneID* || *Percentage change(%)* || *Rank in 2005* || *Rank in 2006* || *GeneRIFS in 2005* || *GeneRIFS in 2006* || *Gene description* ||
+|| *GeneID* || *Percentage change(%)* || *Rank in 2006* || *Rank in 2007* || *GeneRIFS in 2006* || *GeneRIFS in 2007* || *Gene description* ||
 ||  7124||-0.21||    3||    7||  136||   23||tumor necrosis factor (TNF superfamily, member 2)||
 ||   672||-0.18||   24||  155||   58||    5||breast cancer 1, early onset||
 ||  5243||-0.13||   17||   61||   64||    9||ATP-binding cassette, sub-family B (MDR/TAP), member 1||
