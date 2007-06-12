@@ -1,7 +1,7 @@
 #summary all activities developed during the project are described here
 #labels Featured
 
-= Kick off: GenDex 500 - A study of the popularity of genes =
+= _Kick off:_ GenDex 500 - A study of the popularity of genes =
 
 ImportingGenerif
 
@@ -12,3 +12,5 @@ CoverageTests
 ImportingPubMed
 
 RisingStars
+
+DetailsRisingStars
