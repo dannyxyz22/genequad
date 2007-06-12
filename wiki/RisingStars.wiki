@@ -6,31 +6,33 @@ _DetailsRisingStars details how they were found_
 
 === 2006 Rising Stars ===
 
-||*GeneID* || *Percentage change(%)* || *Rank in 2005* || *Rank in 2006* || *GeneRIFS in 2005* || *GeneRIFS in 2006* ||
-||192343||+0.84||  327||    2||   11||  192||
-||  7157||+0.20||    1||    1||  239||  290||
-||  3075||+0.12||  364||   58||   10||   37||
-||  1029||+0.11||   26||   10||   53||   79||
-||   472||+0.11||   97||   35||   26||   51||
-||  3717||+0.11||  104||   38||   25||   49||
-||   154||+0.08||  116||   50||   23||   42||
-||  5243||+0.08||   46||   17||   45||   64||
-||   613||+0.08||  418||  108||    9||   26||
-|| 50943||+0.08||  364||  106||   10||   27||
-||  1869||+0.07||  327||  108||   11||   26||
-||   367||+0.07||   42||   21||   46||   62||
-||  1956||+0.07||    7||    5||  100||  117||
-||  5594||+0.06||   62||   35||   36||   51||
-||  3084||+0.06||  578||  136||    7||   21||
-||  5428||+0.06||  578||  136||    7||   21||
-||   285||+0.06||  418||  124||    9||   23||
-||  5879||+0.06||  226||   90||   15||   29||
-||  5290||+0.06||  193||   78||   17||   31||
-||  4137||+0.06||   33||   18||   49||   63||
-||   387||+0.06||  180||   78||   18||   31||
-||  3791||+0.06||  180||   78||   18||   31||
-||  2932||+0.06||  138||   65||   21||   34||
-||120892||+0.06||   95||   56||   27||   40||
+|| *GeneID* || *Percentage change(%)* || *Rank in 2005* || *Rank in 2006* || *GeneRIFS in 2005* || *GeneRIFS in 2006* || *Gene description* ||
+||192343||+0.84||  327||    2||   11||  192||Record to support submission of GeneRIFs for a gene not in Entrez Gene (human; man).||
+||  7157||+0.20||    1||    1||  239||  290||tumor protein p53 (Li-Fraumeni syndrome)||
+||  3075||+0.12||  364||   58||   10||   37||complement factor H||
+||  1029||+0.11||   26||   10||   53||   79||cyclin-dependent kinase inhibitor 2A (melanoma, p16, inhibits CDK4)||
+||   472||+0.11||   97||   35||   26||   51||ataxia telangiectasia mutated (includes complementation groups A, C and D)||
+||  3717||+0.11||  104||   38||   25||   49||Janus kinase 2 (a protein tyrosine kinase)||
+||   154||+0.08||  116||   50||   23||   42||adrenergic, beta-2-, receptor, surface||
+||  5243||+0.08||   46||   17||   45||   64||ATP-binding cassette, sub-family B (MDR/TAP), member 1||
+||   613||+0.08||  418||  108||    9||   26||breakpoint cluster region||
+|| 50943||+0.08||  364||  106||   10||   27||forkhead box P3||
+||  1869||+0.07||  327||  108||   11||   26||E2F transcription factor 1||
+||   367||+0.07||   42||   21||   46||   62||androgen receptor (dihydrotestosterone receptor; testicular feminization; spinal and bulbar muscular atrophy; Kennedy disease)||
+||  1956||+0.07||    7||    5||  100||  117||epidermal growth factor receptor (erythroblastic leukemia viral (v-erb-b) oncogene homolog, avian)||
+||  5594||+0.06||   62||   35||   36||   51||mitogen-activated protein kinase 1||
+||  3084||+0.06||  578||  136||    7||   21||neuregulin 1||
+||  5428||+0.06||  578||  136||    7||   21||polymerase (DNA directed), gamma||
+||   285||+0.06||  418||  124||    9||   23||angiopoietin 2||
+||  5879||+0.06||  226||   90||   15||   29||ras-related C3 botulinum toxin substrate 1 (rho family, small GTP binding protein Rac1)||
+||  5290||+0.06||  193||   78||   17||   31||phosphoinositide-3-kinase, catalytic, alpha polypeptide||
+||  4137||+0.06||   33||   18||   49||   63||microtubule-associated protein tau||
+||   387||+0.06||  180||   78||   18||   31||ras homolog gene family, member A||
+||  3791||+0.06||  180||   78||   18||   31||kinase insert domain receptor (a type III receptor tyrosine kinase)||
+||  2932||+0.06||  138||   65||   21||   34||glycogen synthase kinase 3 beta||
+||120892||+0.06||   95||   56||   27||   40||leucine-rich repeat kinase 2||
+||  6934||+0.05||  578||  159||    7||   19||transcription factor 7-like 2 (T-cell specific, HMG-box)||
+
 
 
 === 2005 Rising Stars ===
