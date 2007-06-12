@@ -4,6 +4,35 @@ _DetailsRisingStars details how they were found_
 
 == Rising Stars ==
 
+=== 2007 Rising Stars ===
+
+|| *GeneID* || *Percentage change(%)* || *Rank in 2006* || *Rank in 2007* || *GeneRIFS in 2006* || *GeneRIFS in 2007* || *Gene description* ||
+||  3725||+0.16||  136||   24||   21||   14||jun oncogene||
+||  1956||+0.16||    5||    3||  117||   38||epidermal growth factor receptor (erythroblastic leukemia viral (v-erb-b) oncogene homolog, avian)||
+||  1594||+0.15|| 1387||   61||    3||    9||cytochrome P450, family 27, subfamily B, polypeptide 1||
+||  2153||+0.14||  243||   43||   14||   11||coagulation factor V (proaccelerin, labile factor)||
+||  3458||+0.14||   57||   16||   38||   17||interferon, gamma||
+||  1432||+0.14||   37||   11||   50||   20||mitogen-activated protein kinase 14||
+||  6774||+0.13||   61||   19||   35||   16||signal transducer and activator of transcription 3 (acute-phase response factor)||
+|| 60489||+0.12||  189||   43||   17||   11||apolipoprotein B mRNA editing enzyme, catalytic polypeptide-like 3G||
+||   351||+0.12||   14||    6||   70||   24||amyloid beta (A4) precursor protein (peptidase nexin-II, Alzheimer disease)||
+||  4000||+0.10||  172||   48||   18||   10||lamin A/C||
+||  3479||+0.10||   29||   13||   54||   19||insulin-like growth factor 1 (somatomedin C)||
+||  9021||+0.10||  328||   74||   11||    8||suppressor of cytokine signaling 3||
+|| 10018||+0.10||  328||   74||   11||    8||BCL2-like 11 (apoptosis facilitator)||
+||  3973||+0.09|| 1088||  120||    4||    6||luteinizing hormone/choriogonadotropin receptor||
+|| 23411||+0.09||  504||   93||    8||    7||sirtuin (silent mating type information regulation 2 homolog) 1 (S. cerevisiae)||
+||  3630||+0.09||  115||   43||   24||   11||insulin||
+||  7852||+0.09||   75||   31||   32||   13||chemokine (C-X-C motif) receptor 4||
+||   673||+0.09||   59||   24||   36||   14||v-raf murine sarcoma viral oncogene homolog B1||
+||   338||+0.09||  258||   74||   13||    8||apolipoprotein B (including Ag(x) antigen)||
+||  2908||+0.09||  136||   48||   21||   10||nuclear receptor subfamily 3, group C, member 1 (glucocorticoid receptor)||
+|| 10135||+0.08||  243||   74||   14||    8||pre-B-cell colony enhancing factor 1||
+||  6696||+0.08||  130||   48||   22||   10||secreted phosphoprotein 1 (osteopontin, bone sialoprotein I, early T-lymphocyte activation 1)||
+||  2923||+0.08|| 1387||  155||    3||    5||protein disulfide isomerase family A, member 3||
+|| 65057||+0.08|| 1387||  155||    3||    5||adrenocortical dysplasia homolog (mouse)||
+||   648||+0.08||  589||  120||    7||    6||BMI1 polycomb ring finger oncogene||
+
 === 2006 Rising Stars ===
 
 || *GeneID* || *Percentage change(%)* || *Rank in 2005* || *Rank in 2006* || *GeneRIFS in 2005* || *GeneRIFS in 2006* || *Gene description* ||
