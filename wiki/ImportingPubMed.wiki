@@ -1,4 +1,4 @@
-#this page details how to use bioruby in order to import data from pubmed articles
+#summary this page details how to use bioruby in order to import data from pubmed articles
 
 = Introduction =
 
