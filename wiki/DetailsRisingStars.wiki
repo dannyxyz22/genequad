@@ -205,3 +205,15 @@ int main(){
 }
 
 }}}
+Nclassifier works like this. Firstly, geneIDs are loaded through genes.txt and loadGenes() function. After that, rank and percentage are counted through calcPerc() for each year. Then changes from one year to the following are calculated with the function calcShifts(). Finally,  genes are sorted and printed to files through geneSort(). The sorting function puts genes with highest changes on the top. 
+
+Running the program takes a couple seconds, but then, in order to generate RisingStars, descriptions of each gene were looked up in gene_info database (CoverageTests). In order to accomplish this, [http://genequad.googlecode.com/svn/wiki/rising_get.cpp rising_get.cpp] was created. It is compiled as:
+{{{
+g++ rising_get.cpp -lsqlite3 -o rising_get
+}}}
+and was run redirecting each of the star200X.txt to standard input, for instance:
+{{{
+./rising_get < star2006.txt
+}}}
+and the output was already formated for google code wiki.
+After that the sorting function was inverted and then results showed ShowStopers.
