@@ -216,4 +216,4 @@ and was run redirecting each of the star200X.txt to standard input, for instance
 ./rising_get < star2006.txt
 }}}
 and the output was already formated for google code wiki.
-After that the sorting function was inverted and then results showed ShowStopers.
+After that the sorting function was inverted and then results showed ShowStoppers.
