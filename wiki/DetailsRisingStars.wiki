@@ -4,6 +4,34 @@
 
 A key information that may be retrieved from imported databases is which genes have had some importance increase along the last years. After testing several ways to detect these genes, a simple approach was made, based on the percentage of geneRIFs that were published about each gene, according to the related pubMed article.
 
+== Why using percentage change? ==
+
+Suppose in 2005 there were 1000 articles and in 2006, 1500 ones.
+Suppose gene A had 100 articles in 2005 and 150 articles in 2006.
+Suppose gene B had 100 articles in 2005 and 100 articles in 2006.
+Suppose gene C had 100 articles in 2005 and 300 articles in 2006.
+Suppose gene D had 1 article in 2005 and 2 articles in 2006.
+Suppose gene E had 0 articles in 2005 and 1 article in 2006.
+Suppose gene F had 400 articles in 2005 and 610 articles in 2006.
+
+It illustrates main problems:
+
+Gene A is about a gene that almost doesn't change along the years. In 2005 it represented 10% of the articles, so in 2006. So, the percentage change for gene A is : 0%. (not much of a rising star, although the number of articles published has increased... but so did the othes).
+
+Gene B describes a gene that in spite of having the same number of articles from one year to another, had a negative percentage:
+B(2005) = 10%, B(2006) = 6,66%, absolute percentage change = -3,33% . (it's OK! B is less interesting in 2006, since every gene had a 50% increase in publications, but not B).
+
+Gene C: C(2005)=10%, C(2006) = 20%. Perc. change = +10.0% (C is surely more interesting in 2006).
+
+Gene D and E show problems that happen when using only ranks.
+
+Gene D: D(2005)=0.1%, D(2006) = 0.13%. Perc. change = +0.03% (D has twice the number of articles in 2006, it is not much important).
+The same happens to E:
+Gene E: E(2005) =0%, E(2006) = 0.06%. Perc. change = +0.06% (E has appeared out of zero, but it is still only 1 article).
+
+Gene F: F(2005) = 40%, F(2006) = 40.6%. Perc. change = +0.6% (F had 210 more articles in 2006, but it's not a big change for F, it's been the first for some time. C is surely more of a rising star than F). 
+
+Although this approach solves most of the problems of using difference in ranking along the years, small differences for genes that have a big percentage may still obfuscate less publicated genes. But this situation happens for only a few genes, causing almost no problems to this approach.
 
 = Procedures =
 
