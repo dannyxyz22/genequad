@@ -1,7 +1,7 @@
 #summary shows the highest frequencies of each stemmed word generated from all generif records
 
 = Results =
-|| *Word* || *Number of times it appeared* ||
+|| *Stemmed word* || *Number of times it appeared* ||
 || NF-kappaB || 1919  || 
 || doe || 1945 || 
 || multipl || 1946 || 
