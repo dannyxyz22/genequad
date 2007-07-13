@@ -1,9 +1,15 @@
 #summary shows the highest frequencies of each stemmed word generated from all generif records
 
+== TODO ==
+- clean up wiki
+
+- check out the Brown Corpus to use as standard frequencies
+
+- use Speech and  Language Processing (Daniel Jurafsky & James H. Martin) pg 651-654 formula for each gene
+
+- compare words case insensitive
+
 = Procedures =
-
-(TODO Clean up)
-
 
 - Installing stemmer
 http://nltk.sourceforge.net/index.php/Installation#Linux.2FUnix
