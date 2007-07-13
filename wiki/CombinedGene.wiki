@@ -12,7 +12,7 @@ http://nltk.sourceforge.net/index.php/Installation#Linux.2FUnix
 http://www.ibm.com/developerworks/linux/library/l-cpnltk.html
 
 
---Procedures
+== Word count procedures ==
 select description from gene_info;
 
 output result to words
