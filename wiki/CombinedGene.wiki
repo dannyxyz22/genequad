@@ -1,20 +1,25 @@
 #summary shows the highest frequencies of each stemmed word generated from all generif records
 
-= Procedures (TODO Clean up) =
+= Procedures =
+
+(TODO Clean up)
 
 
 - Installing stemmer
 http://nltk.sourceforge.net/index.php/Installation#Linux.2FUnix
+
 - Using it
 http://www.ibm.com/developerworks/linux/library/l-cpnltk.html
 
 
 --Procedures
 select description from gene_info;
+
 output result to words
 
 tokenize it, using tokenizer.cpp 
-**********************
+
+{{{
 #include <fstream>
 #include <string>
 #include <iostream>
@@ -54,10 +59,12 @@ int main(){
     }
   }
 }
-****************************************
+
+}}}
 
 Python script to generate combinedGeneStem text file
 
+{{{
 from nltk import stem
 p = stem.porter.Porter()
 p.stem('testing')
@@ -77,11 +84,12 @@ f = open('combinedGeneStem','w')
 for item in d:
    f.writelines(item + '\n')
 
-*******************************************
+}}}
+
 Then, used 
 combinedGeneCounter.cpp
 to make the counts
-*****************************************
+{{{
 
 #include <fstream>
 #include <string>
@@ -135,7 +143,7 @@ int main(){
   }
 
 }
-************************************************
+}}}
 
 
 = Results =
