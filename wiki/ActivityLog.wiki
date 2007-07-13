@@ -16,3 +16,7 @@ RisingStars
 DetailsRisingStars
 
 ShowStoppers
+
+= GeneQuad =
+
+CombinedGene
