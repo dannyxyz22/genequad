@@ -1,6 +1,146 @@
 #summary shows the highest frequencies of each stemmed word generated from all generif records
 
+= Procedures (TODO Clean up) =
+
+
+- Installing stemmer
+http://nltk.sourceforge.net/index.php/Installation#Linux.2FUnix
+- Using it
+http://www.ibm.com/developerworks/linux/library/l-cpnltk.html
+
+
+--Procedures
+select description from gene_info;
+output result to words
+
+tokenize it, using tokenizer.cpp 
+**********************
+#include <fstream>
+#include <string>
+#include <iostream>
+#include <vector>
+#include <sqlite3.h>
+
+using namespace std;
+
+void Tokenize(const string& str,
+                      vector<string>& tokens,
+                      const string& delimiters = " ")
+{
+    // Skip delimiters at beginning.
+    string::size_type lastPos = str.find_first_not_of(delimiters, 0);
+    // Find first "non-delimiter".
+    string::size_type pos     = str.find_first_of(delimiters, lastPos);
+
+    while (string::npos != pos || string::npos != lastPos)
+    {
+        // Found a token, add it to the vector.
+        tokens.push_back(str.substr(lastPos, pos - lastPos));
+        // Skip delimiters.  Note the "not_of"
+        lastPos = str.find_first_not_of(delimiters, pos);
+        // Find next "non-delimiter"
+        pos = str.find_first_of(delimiters, lastPos);
+    }
+}
+
+int main(){
+  ifstream in("descriptions.txt");
+  string s;
+  while(getline(in,s)){
+    vector<string> fields;
+    Tokenize(s,fields," .,[]");
+    for(int i=0;i<fields.size();i++){
+      cout << fields[i] << endl;
+    }
+  }
+}
+****************************************
+
+Python script to generate combinedGeneStem text file
+
+from nltk import stem
+p = stem.porter.Porter()
+p.stem('testing')
+
+reading a file
+f = open('words','r')
+b = f.readlines();
+c = []
+for s in b:
+  c.append(s.replace('\n',''))
+
+d = []
+for item in c:
+   d.append(p.stem(item))
+
+f = open('combinedGeneStem','w')
+for item in d:
+   f.writelines(item + '\n')
+
+*******************************************
+Then, used 
+combinedGeneCounter.cpp
+to make the counts
+*****************************************
+
+#include <fstream>
+#include <string>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <map>
+
+using namespace std;
+
+class wordCount{
+public:
+  string word;
+  int    count;
+};
+
+
+bool operator<(const wordCount& a, const wordCount& b) {
+  if(a.count != b.count){
+    return a.count < b.count;
+  }
+  else
+    return a.word < b.word;
+}
+
+int main(){
+  ifstream in("combinedGeneStem");
+  map<string,int> countMap;
+  string s;
+  while(getline(in,s)){
+    countMap[s]=0;
+  }
+  ifstream again("combinedGeneStem");
+  while(getline(again,s)){
+    countMap[s]++;
+  }
+  map<string,int>::iterator it;
+  vector<wordCount> wordsToSort;
+  
+  for(it =countMap.begin();it!=countMap.end();it++){
+    wordCount temp;
+    temp.word = (*it).first;
+    temp.count = (*it).second;
+    wordsToSort.push_back(temp);
+  }
+
+  sort(wordsToSort.begin(),wordsToSort.end());
+
+  for(int i=0;i<wordsToSort.size();i++){
+    cout << wordsToSort[i].word << " = " << wordsToSort[i].count << endl;
+  }
+
+}
+************************************************
+
+
 = Results =
+[http://genequad.googlecode.com/svn/wiki/myCount.txt wholelist]
+
 || *Stemmed word* || *Number of times it appeared* ||
 || NF-kappaB || 1919  || 
 || doe || 1945 || 
