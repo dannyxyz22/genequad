@@ -76,6 +76,7 @@ sqlite> select distinct geneID as g from generif order by g;
 3- Create termWeighter.cpp
 
 {{{
+
 #include <fstream>
 #include <string>
 #include <iostream>
@@ -95,13 +96,27 @@ map<string, int> dictionary;
 map<string,double> idf;
 
 
+//class used to find most important terms
+class termSort{
+public:
+  string word;
+  double weight;
+};
 
+bool operator<(const termSort& a, const termSort& b) {
+  if(fabs( a.weight - b.weight) < 0.000001){
+    return a.word < b.word;
+  }
+  else
+    return a.weight > b.weight;
+}
 
 //class used to sort idfs
 class idfSort{
 public:
   string word;
   double idf;
+  int ni;
 };
 
 //
@@ -213,6 +228,7 @@ void countFrequencies(){
 }
 
 void calculateIDF(){
+  printf("Calculating idfs...\n");
   map<string,int>::iterator it;
   vector<idfSort> idfs;
   for(it = dictionary.begin();it!=dictionary.end();it++){
@@ -223,13 +239,16 @@ void calculateIDF(){
     idfSort temp;
     temp.word = word;
     temp.idf = idf[word];
+    temp.ni = ni;
     idfs.push_back(temp);
     
   }
   sort(idfs.begin(),idfs.end());
+  /*
+  printf("Word                                 idf   #of documents\n");
   for(int i=0;i<idfs.size();i++){
-    printf("%-30s %5.3lf\n",idfs[i].word.c_str(),idfs[i].idf);
-  }
+    printf("%-36s %5.3lf  %3d\n",idfs[i].word.c_str(),idfs[i].idf,idfs[i].ni);
+    }*/
   
   
   
@@ -242,6 +261,34 @@ void printNi(){
   }
 }
 
+void calculateTfIdfWeight(){
+  printf("Calculating tf * idf weighting...\n");
+
+
+  map<int, map<string,int> >::iterator git;
+  for(git = geneIDwordFrequency.begin();git!=geneIDwordFrequency.end();git++){
+    map<string,double> termWeight;
+    vector<termSort> termVector;
+
+    map<string,int>::iterator wit;
+    for(wit = (*git).second.begin();wit != (*git).second.end(); wit++){
+      string term = (*wit).first;
+      int termFrequency = (*wit).second;
+      double termIDF = idf[term];
+      termWeight[term] = termFrequency * termIDF;
+      termSort temp;
+      temp.word = term;
+      temp.weight = termWeight[term];
+      termVector.push_back(temp);      
+    }	
+    sort(termVector.begin(),termVector.end());
+    printf("Gene %d\n",(*git).first);
+    for(int i=0;i<termVector.size();i++){
+      printf("%-20s %5.3lf\n",termVector[i].word.c_str(),termVector[i].weight);
+    }
+  }  
+}
+
 int main(){
 
   clusterDocuments(); //loads geneCluster
@@ -250,9 +297,10 @@ int main(){
                       //done all at once
   calculateIDF();
 
+  calculateTfIdfWeight();
+
   //printNi();
 }
-
 
 
 }}}
@@ -260,3 +308,247 @@ int main(){
 = Results = 
 
 The words, idf's, and number of times each word appear in the generifs are shown in the following 9MB file [http://genequad.googlecode.com/svn/wiki/idfs.txt IDFs]
+
+
+= GeneQuad Results = 
+
+Results for a few genes: 
+
+{{{
+Gene 39
+acat2                70.330
+acat1                23.666
+acat-2               18.134
+predominate          16.513
+resolution           12.871
+angstroms            12.685
+human                11.687
+cholesterol-esterifying 10.454
+liver                9.830
+acetoacetyl-coa      9.760
+acat-1               9.355
+certain              9.220
+thiolase             8.844
+transcripts          8.388
+acetyl-coenzyme      8.056
+various              8.048
+hnf1                 7.745
+conditions           7.424
+sterols              7.409
+promoterthe          7.158
+under                7.023
+distinguishing       7.020
+isoenzymes           7.020
+duodenum             6.988
+unliganded           6.843
+coa                  6.790
+ct                   6.647
+enzyme               6.524
+understand           6.483
+biomarker            6.097
+pathologic           5.910
+histidine            5.858
+acetyltransferase    5.848
+notion               5.848
+3                    5.682
+catalysis            5.650
+encode               5.548
+respect              5.443
+activators           5.436
+at                   5.394
+produces             5.300
+help                 5.266
+fully                5.140
+provided             5.092
+samples              4.998
+intestine            4.920
+pathological         4.777
+differentiated       4.750
+hepatocellular       4.607
+2                    4.535
+cytosolic            4.524
+very                 4.452
+substrates           4.406
+features             4.390
+1                    4.331
+serve                4.206
+important            4.109
+regulation           4.067
+both                 4.015
+specificity          4.000
+hepatic              3.986
+6                    3.923
+addition             3.914
+macrophages          3.908
+express              3.873
+splicing             3.865
+catalytic            3.863
+located              3.846
+alternative          3.808
+variants             3.780
+describe             3.733
+elevated             3.711
+s                    3.657
+activity             3.602
+physiological        3.594
+carcinoma            3.566
+crucial              3.532
+and/or               3.500
+structural           3.481
+reported             3.460
+substrate            3.450
+our                  3.448
+residues             3.387
+support              3.386
+beta                 3.255
+4                    3.252
+part                 3.167
+alpha                3.164
+active               3.149
+vitro                3.111
+factors              3.078
+form                 3.049
+new                  3.031
+major                3.003
+as                   2.989
+findings             2.977
+high                 2.967
+are                  2.965
+might                2.914
+regulatory           2.876
+site                 2.857
+nuclear              2.829
+an                   2.811
+for                  2.806
+the                  2.734
+and                  2.603
+structure            2.580
+expression           2.485
+two                  2.470
+in                   2.456
+mrna                 2.431
+transcription        2.391
+play                 2.335
+factor               2.213
+novel                2.159
+complex              2.140
+to                   2.122
+data                 2.112
+has                  1.990
+with                 1.989
+from                 1.731
+of                   1.722
+that                 1.663
+may                  1.507
+gene                 1.466
+role                 1.277
+a                    1.073
+Gene 40
+loopasic2            10.454
+asic2a               9.355
+amiloride-sensitive  8.662
+connected            6.191
+termini              6.163
+consists             6.035
+carboxyl             5.650
+glioma               5.140
+subtype              5.069
+current              4.826
+transmembrane        4.274
+large                3.803
+migration            3.429
+extracellular        3.426
+amino                3.360
+surface              3.255
+domains              3.245
+intracellular        3.224
+inhibits             3.196
+two                  2.470
+cells                1.447
+expression           1.243
+by                   1.046
+and                  0.868
+a                    0.537
+the                  0.497
+of                   0.431
+Gene 41
+asic1a               17.015
++                    11.759
+acid-induced         11.580
+bnac2asics           10.454
+ibuprofen            10.454
+na                   10.157
+acid-gated           9.760
+asic1a/2a            9.760
+current              9.652
+asics                9.355
+-gated               9.067
+asic1                8.508
+vr1                  7.969
+nociceptors          7.814
+adenoid              7.681
+isotypes             7.409
+nociception          7.235
+elevates             6.790
+sensors              6.669
+extremely            6.393
+fear                 6.359
+anxiety              6.310
+cftr                 6.191
+contributor          6.097
+participation        5.771
+cystic               5.674
+feature              5.484
+currents             5.330
+pain                 5.306
+acidic               5.207
+altering             5.111
+wild                 5.092
+cutaneous            5.088
+characteristic       4.973
+kinetics             4.944
+pkc                  4.815
+observations         4.787
+overall              4.737
+carcinomas           4.717
+disorders            4.628
+abnormal             4.290
+mainly               4.251
+participates         4.215
+channels             4.122
+h                    3.931
+strongly             3.721
+conditions           3.712
+studies              3.533
+under                3.511
+leading              3.436
+extracellular        3.426
+contributes          3.197
+part                 3.167
+multiple             3.141
+significant          3.075
+acid                 2.895
+contribute           2.839
+to                   2.829
+mediated             2.793
+type                 2.724
+functional           2.508
+interaction          2.337
+show                 2.229
+development          2.104
+by                   2.093
+these                2.085
+is                   2.032
+human                1.948
+suggest              1.842
+activity             1.801
+may                  1.507
+of                   1.507
+the                  1.491
+are                  1.482
+cells                1.447
+expression           1.243
+in                   0.921
+and                  0.868
+a                    0.537
+}}}
