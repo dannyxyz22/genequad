@@ -6,6 +6,7 @@ TODO: Describe what idfs are useful for.
 
 = Questions =
 Using term weighting, is there any problem for so many genes with so few generifs (60% are under 6)?
+
 Should we use thesaurus? (liver/hepatic)
 
 = Resources = 
@@ -22,6 +23,7 @@ http://www.oleandersolutions.com/stemming.html
 geneID = 39
 
 Fully differentiated macrophages express ACAT2 in addition to ACAT1 under various pathologic conditions.
+
 ACAT-1 transcripts predominate in human liver and ACAT-2 transcripts predominate in human duodenum and support the notion that ACAT-2 has an important regulatory role in liver and intestine.
 
 ACAT2 provided the major cholesterol-esterifying activity in 3 of 4 human liver samples.
