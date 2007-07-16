@@ -55,13 +55,17 @@ ACAT2, since it is the gene symbol
 
 1 - Calculate N
 
+{{{
 sqlite> select count(*) from generif;
 203263
+}}}
 
 ... a better number:
 
+{{{
 sqlite> select count(distinct geneID) from generif;
 34667
+}}}
 
 Since we are going to consider all generifs associated to a geneID as a different document
 
