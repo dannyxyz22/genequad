@@ -5,7 +5,6 @@
 TODO: Describe what idfs are useful for. 
 
 = Questions =
-Using term weighting, is there any problem for so many genes with so few generifs (60% are under 6)?
 
 Should we use thesaurus? (liver/hepatic)
 
