@@ -554,3 +554,12 @@ in                   0.921
 and                  0.868
 a                    0.537
 }}}
+
+== Comments ==
+
+Some words will need to be filtered: 
+- symbol name
+- measures (angstroms)
+- signals (maybe tokenize them?)
+
+TODO: stem words in C++
