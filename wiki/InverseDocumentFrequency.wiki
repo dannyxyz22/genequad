@@ -43,12 +43,12 @@ histidine residues located at the active site are very crucial both for the cata
 
 == Expected results: ==
 
-liver (hepatic)
-cholesterol-esterifying(?)
-ACAT1
+  * liver (hepatic)
+  * cholesterol-esterifying(?)
+  * ACAT1
 
-don't want
-ACAT2, since it is the gene symbol
+we don't want:
+  * ACAT2, since it is the gene symbol
 
 
 = Procedures =
@@ -68,8 +68,6 @@ sqlite> select count(distinct geneID) from generif;
 }}}
 
 Since we are going to consider all generifs associated to a geneID as a different document
-
-
 
 2 - Generate file containing all geneIDs that will be researched:
 
