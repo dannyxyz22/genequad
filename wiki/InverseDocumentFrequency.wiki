@@ -259,4 +259,4 @@ int main(){
 
 = Results = 
 
-[http://genequad.googlecode.com/svn/wiki/idfs.txt IDFs]
+The words, idf's, and number of times each word appear in the generifs are shown in the following 9MB file [http://genequad.googlecode.com/svn/wiki/idfs.txt IDFs]
