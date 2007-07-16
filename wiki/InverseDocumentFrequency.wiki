@@ -6,6 +6,11 @@ TODO: Describe what idfs are useful for.
 
 Use division of terms with Brown selection (remember to add some constant so that division won't get too large).
 
+Add the descriptions from
+http://www.ncbi.nlm.nih.gov/sites/entrez
+
+Make a database design
+
 
 = Questions =
 
