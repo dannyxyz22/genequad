@@ -558,8 +558,11 @@ a                    0.537
 == Comments ==
 
 Some words will need to be filtered: 
-- symbol name
-- measures (angstroms)
-- signals (maybe tokenize them?)
+
+  * symbol name
+  * measures (angstroms)
+  * signals (maybe tokenize them?)
+
+Are we losing important information somewhere?
 
 TODO: stem words in C++
