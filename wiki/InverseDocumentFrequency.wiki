@@ -443,6 +443,7 @@ may                  1.507
 gene                 1.466
 role                 1.277
 a                    1.073
+
 Gene 40
 loopasic2            10.454
 asic2a               9.355
@@ -471,6 +472,7 @@ and                  0.868
 a                    0.537
 the                  0.497
 of                   0.431
+
 Gene 41
 asic1a               17.015
 +                    11.759
