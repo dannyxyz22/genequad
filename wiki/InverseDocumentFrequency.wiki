@@ -1,0 +1,258 @@
+#summary Describes the procedures used to calculate Inverse Document Frequencies
+
+= Introduction =
+
+TODO: Describe what idfs are useful for. 
+
+= Questions =
+Using term weighting, is there any problem for so many genes with so few generifs (60% are under 6)?
+Should we use thesaurus? (liver/hepatic)
+
+= Resources = 
+
+If you need C++ stemming 
+http://www.oleandersolutions.com/stemming.html
+
+(how to search for a word in a field using sql)
+
+ select * from generif where description like '%mutated%';
+
+= Example = 
+
+geneID = 39
+
+Fully differentiated macrophages express ACAT2 in addition to ACAT1 under various pathologic conditions.
+ACAT-1 transcripts predominate in human liver and ACAT-2 transcripts predominate in human duodenum and support the notion that ACAT-2 has an important regulatory role in liver and intestine.
+
+ACAT2 provided the major cholesterol-esterifying activity in 3 of 4 human liver samples.
+
+Data describe the high resolution structure of human cytosolic acetoacetyl-CoA thiolase (CT), both unliganded (at 2.3 angstroms resolution) and in complex with CoA (at 1.6 angstroms resolution).
+
+transcription factors hepatic nuclear factor 1 (HNF1)alpha and beta play an important part in the regulation of the human acetyl-Coenzyme A acetyltransferase 2(ACAT2) promoter
+
+The structural features of various sterols as substrates and/or activators of ACAT1 and ACAT2 in vitro are reported.
+
+Elevated ACAT2 expression may serve as a new biomarker for certain form(s) of hepatocellular carcinoma.
+
+Alternative splicing produces two human ACAT2 mRNA variants that encode the novel ACAT2 isoenzymes. Our findings might help to understand the regulation of the ACAT2 gene expression under certain physiological and pathological conditions.
+
+histidine residues located at the active site are very crucial both for the catalytic activity of the enzyme and for distinguishing ACAT1 from ACAT2 with respect to enzyme catalysis and substrate specificity
+
+
+== Expected results: ==
+
+liver (hepatic)
+cholesterol-esterifying(?)
+ACAT1
+
+don't want
+ACAT2, since it is the gene symbol
+
+
+= Procedures =
+
+1 - Calculate N
+
+sqlite> select count(*) from generif;
+203263
+
+... a better number:
+
+sqlite> select count(distinct geneID) from generif;
+34667
+
+Since we are going to consider all generifs associated to a geneID as a different document
+
+
+
+2 - Generate file containing all geneIDs that will be researched:
+
+sqlite3 gene.db > geneIDs.txt
+
+sqlite> select distinct geneID as g from generif order by g;
+
+3- Create termWeighter.cpp
+
+{{{
+#include <fstream>
+#include <string>
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <sqlite3.h>
+#include <map>
+#include <cmath>
+
+#define DOCUMENTS 34667
+
+using namespace std;
+
+map<int,string> geneCluster;
+map<int, map<string,int> > geneIDwordFrequency;
+map<string, int> dictionary;
+map<string,double> idf;
+
+
+
+
+//class used to sort idfs
+class idfSort{
+public:
+  string word;
+  double idf;
+};
+
+//
+bool operator<(const idfSort& a, const idfSort& b) {
+  if(fabs( a.idf - b.idf) < 0.000001){
+    return a.word < b.word;
+  }
+  else
+    return a.idf < b.idf;
+}
+
+string makeLower(string s){
+  string sBuffer = s;
+  transform( sBuffer.begin(), sBuffer.end(), sBuffer.begin(),::tolower );
+  return sBuffer;
+}
+
+static int callback(void *NotUsed, int argc, char **argv, char **azColName){
+  int id;
+  sscanf(argv[0],"%d",&id);
+  geneCluster[id]+=argv[1];
+  return 0;
+}
+
+
+//a simple Tokenizer... all words are lowered here
+void Tokenize(const string& str,
+                      vector<string>& tokens,
+                      const string& delimiters = " ")
+{
+    // Skip delimiters at beginning.
+    string::size_type lastPos = str.find_first_not_of(delimiters, 0);
+    // Find first "non-delimiter".
+    string::size_type pos     = str.find_first_of(delimiters, lastPos);
+
+    while (string::npos != pos || string::npos != lastPos)
+    {
+        // Found a token, add it to the vector.
+      tokens.push_back(makeLower(str.substr(lastPos, pos - lastPos)));
+        // Skip delimiters.  Note the "not_of"
+        lastPos = str.find_first_not_of(delimiters, pos);
+        // Find next "non-delimiter"
+        pos = str.find_first_of(delimiters, lastPos);
+    }
+}
+
+
+//separates descriptions per geneID in a global map
+void clusterDocuments(){
+  printf("Clustering documents\n");
+
+  sqlite3 *db;
+  char* zErrMsg = 0;
+  char temp[300];
+  int rc = sqlite3_open("gene.db",&db);
+  if(rc) {printf("bugged\n");return;}  
+
+  sprintf(temp,"select geneID, description from generif order by geneID;");
+  rc = sqlite3_exec(db,temp, callback, 0, &zErrMsg);
+  if( rc!=SQLITE_OK){
+    fprintf(stderr, "SQL error: %s\n",zErrMsg);
+    fprintf(stderr, "Blamed string: %s\n",temp);
+    sqlite3_free(zErrMsg);
+  }
+
+}
+
+
+
+
+
+//this function also loads the dictionary with words
+void countFrequencies(){
+  printf("Counting frequencies\n");
+  map<int,string>::iterator it;
+  for(it = geneCluster.begin();it!=geneCluster.end();it++){
+    int geneId = (*it).first;
+    string descriptions = (*it).second;
+    vector<string> tokens;
+
+    map<string,int> tempMap; //this map is used to calculate ni
+    
+
+    Tokenize(descriptions,tokens," :.,()");
+    for(int i=0;i<tokens.size();i++){
+      tempMap[tokens[i]]=1;
+
+      if( geneIDwordFrequency[geneId].find(tokens[i]) == geneIDwordFrequency[geneId].end()){
+	//doesn't exist 
+	geneIDwordFrequency[geneId][tokens[i]]=1;
+      }
+      else{
+	//increase
+	geneIDwordFrequency[geneId][tokens[i]]++;
+      }
+    }    
+
+    //load dictionary
+    map<string,int>::iterator tit;
+    for(tit = tempMap.begin();tit!=tempMap.end();tit++){
+      if( dictionary.find( (*tit).first )!= dictionary.end()){
+	dictionary[ (*tit).first ]++;
+      }
+      else{
+	dictionary[ (*tit).first ] = 1;
+      }
+    }
+  }
+}
+
+void calculateIDF(){
+  map<string,int>::iterator it;
+  vector<idfSort> idfs;
+  for(it = dictionary.begin();it!=dictionary.end();it++){
+    string word = (*it).first;
+    int ni = (*it).second;
+    //using formula from page 653 of Speech and Language Processing Daniel Jurafsky
+    idf[word] = log( (double) DOCUMENTS / ni);       
+    idfSort temp;
+    temp.word = word;
+    temp.idf = idf[word];
+    idfs.push_back(temp);
+    
+  }
+  sort(idfs.begin(),idfs.end());
+  for(int i=0;i<idfs.size();i++){
+    printf("%-30s %5.3lf\n",idfs[i].word.c_str(),idfs[i].idf);
+  }
+  
+  
+  
+}
+
+void printNi(){
+  map<string,int>::iterator it;
+  for(it = dictionary.begin();it!=dictionary.end();it++){
+    printf("%s = %d\n", (*it).first.c_str(),(*it).second);
+  }
+}
+
+int main(){
+
+  clusterDocuments(); //loads geneCluster
+  countFrequencies(); //loads geneIDwordFrequency from geneCluster... 
+                      //makes code easier to read although it could be 
+                      //done all at once
+  calculateIDF();
+
+  //printNi();
+}
+
+
+
+}}}
+
+= Results = 
