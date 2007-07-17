@@ -1,0 +1,31 @@
+#summary How to import Entrez Summary in order to get more info for the genes
+
+= Introduction =
+
+Entrez Summary is available from
+http://www.ncbi.nlm.nih.gov/sites/entrez
+
+
+= Details =
+
+A ruby script was used. The package REXML was used to parse xml.
+
+{{{
+#!/usr/bin/env ruby
+require 'net/http'
+require 'rexml/document'
+include REXML
+host = "eutils.ncbi.nlm.nih.gov"  
+path = "/entrez/eutils/efetch.fcgi?db=gene&tool=genequad&retmode=xml&id="
+http = Net::HTTP.new(host)
+id = "39"
+response, = http.get(path + id)
+result = response.body
+doc = Document.new(result)
+root = doc.root
+geneID =  root.elements[1].elements[1].elements[1].elements[1].to_a[0]
+description = root.elements[1].elements[6].to_a[0]
+puts "GeneID" 
+puts geneID
+puts description
+}}}
