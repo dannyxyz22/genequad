@@ -8,7 +8,12 @@ http://www.ncbi.nlm.nih.gov/sites/entrez
 
 = Details =
 
-A ruby script was used. The package REXML was used to parse xml.
+A ruby script was used. It reads a file "geneIDs.txt" that is generated from a simple generif query:
+{{{
+select distinct(geneID) from generif order by geneid;
+}}}
+
+The package REXML was used to parse xml.
 
 {{{
 #!/usr/bin/env ruby
@@ -18,14 +23,46 @@ include REXML
 host = "eutils.ncbi.nlm.nih.gov"  
 path = "/entrez/eutils/efetch.fcgi?db=gene&tool=genequad&retmode=xml&id="
 http = Net::HTTP.new(host)
-id = "39"
-response, = http.get(path + id)
-result = response.body
-doc = Document.new(result)
-root = doc.root
-geneID =  root.elements[1].elements[1].elements[1].elements[1].to_a[0]
-description = root.elements[1].elements[6].to_a[0]
-puts "GeneID" 
-puts geneID
-puts description
+
+myIDs = File.open("geneIDs.txt").read
+
+myIDs.each{ |line|
+	id = line.strip
+	response, = http.get(path + id)
+	result = response.body
+	doc = Document.new(result)
+	root = doc.root
+	geneID =  root.elements[1].elements[1].elements[1].elements[1].to_a[0]
+	description = root.elements[1].elements[6].to_a[0]
+	puts "GeneID" 
+	puts geneID
+	puts description
+}
+}}}
+
+This .cpp was used to get the results. In the future, it will insert the data in a table in the database.
+{{{
+#include <stdio.h>
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main(){
+  ifstream in("temp.txt");
+  string s;
+  int count=0;
+  int fileID=0;
+  getline(in,s);
+  while(s=="GeneID"){
+    getline(in,s);
+    printf("GeneId = %s\n",s.c_str());
+    getline(in,s);
+    printf("Description = %s\n\n",s.c_str());
+    while(getline(in,s)){
+      if(s=="GeneID") break;
+    }
+  }
+}
 }}}
