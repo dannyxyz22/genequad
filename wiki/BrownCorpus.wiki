@@ -228,3 +228,7 @@ of                   0.000
 a                    0.000
 the                  0.000
 }}}
+
+== Coments ==
+
+There's a problem when the word does not appear in brown, as it really goes up.
