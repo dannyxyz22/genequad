@@ -7,7 +7,215 @@ Add your content here.
 
 = Procedures =
 
-download:
+== Download ==
 
 from (http://www.lextutor.ca/lists_download/) downloaded 
 [http://www.lextutor.ca/lists_download/brown_freq.txt brown_freq.txt]
+
+== Code == 
+
+A couple functions were added to termWeighter.cpp
+
+{{{
+void loadBrownCorpus(){
+  FILE* brownFile = fopen("brown_freq.txt","r");
+  char word[200];
+  int wordFreq;
+  while( fscanf(brownFile,"%s %d",word,&wordFreq) !=EOF ){
+    string sWord = (string)word;
+    brown[makeLower(sWord)]=wordFreq;
+  }
+}
+void calculateBrownRatios(){
+  map<int, map<string,int> >::iterator git;
+  for(git = geneIDwordFrequency.begin();git!=geneIDwordFrequency.end();git++){
+    map<string,double> termRatioMap;
+    vector<termSort> termVector;
+    
+    map<string,int>::iterator wit;
+    for(wit = (*git).second.begin();wit != (*git).second.end(); wit++){
+      string term = (*wit).first;
+      int termFrequency = (*wit).second;
+      int brownFrequency = 0;
+      if( brown.find(term) != brown.end()){
+	brownFrequency = brown[term];
+      }
+      double ratio = (double) termFrequency / (BROWNCONSTANT + brownFrequency);
+      termRatioMap[term] = ratio;
+      termSort temp;
+      temp.word = term;
+      temp.weight = termRatioMap[term];
+      termVector.push_back(temp);      
+    }	
+    sort(termVector.begin(),termVector.end());
+    printf("Gene %d\n",(*git).first);
+    for(int i=0;i<termVector.size();i++){
+      printf("%-20s %5.3lf\n",termVector[i].word.c_str(),termVector[i].weight);
+    }
+  }      
+}
+}}}
+
+= Results = 
+
+Showing the results using Brown Corpus Ratios for the same genes used in InverseDocumentFrequency 
+
+{{{
+Gene 39
+acat2                0.090
+acat1                0.030
+liver                0.026
+1                    0.020
+2                    0.020
+3                    0.020
+acat-2               0.020
+angstroms            0.020
+predominate          0.020
+transcripts          0.020
+enzyme               0.019
+resolution           0.018
+regulation           0.018
+human                0.015
+expression           0.011
+4                    0.010
+6                    0.010
+acat-1               0.010
+acetoacetyl-coa      0.010
+acetyl-coenzyme      0.010
+acetyltransferase    0.010
+activators           0.010
+and/or               0.010
+biomarker            0.010
+catalysis            0.010
+cholesterol-esterifying 0.010
+coa                  0.010
+cytosolic            0.010
+duodenum             0.010
+encode               0.010
+hepatic              0.010
+hepatocellular       0.010
+histidine            0.010
+hnf1                 0.010
+isoenzymes           0.010
+mrna                 0.010
+promoterthe          0.010
+sterols              0.010
+thiolase             0.010
+unliganded           0.010
+variants             0.010
+carcinoma            0.010
+ct                   0.010
+intestine            0.010
+macrophages          0.010
+pathologic           0.010
+splicing             0.010
+beta                 0.010
+catalytic            0.010
+transcription        0.010
+residues             0.010
+substrates           0.010
+vitro                0.010
+differentiated       0.010
+regulatory           0.010
+alpha                0.009
+distinguishing       0.009
+activity             0.009
+gene                 0.009
+pathological         0.009
+specificity          0.009
+elevated             0.009
+produces             0.008
+physiological        0.008
+substrate            0.008
+structural           0.008
+samples              0.008
+crucial              0.008
+alternative          0.007
+findings             0.007
+conditions           0.007
+notion               0.007
+describe             0.007
+express              0.007
+various              0.007
+novel                0.006
+located              0.006
+site                 0.006
+factor               0.006
+features             0.006
+fully                0.006
+active               0.005
+structure            0.005
+complex              0.005
+role                 0.005
+factors              0.005
+certain              0.005
+serve                0.005
+nuclear              0.005
+reported             0.005
+respect              0.004
+provided             0.004
+important            0.004
+understand           0.004
+addition             0.004
+data                 0.004
+support              0.004
+play                 0.003
+major                0.003
+under                0.002
+help                 0.002
+both                 0.002
+form                 0.002
+high                 0.002
+part                 0.002
+might                0.001
+very                 0.001
+our                  0.001
+may                  0.001
+two                  0.001
+new                  0.001
+at                   0.001
+an                   0.001
+are                  0.000
+has                  0.000
+in                   0.000
+for                  0.000
+and                  0.000
+as                   0.000
+with                 0.000
+from                 0.000
+of                   0.000
+that                 0.000
+s                    0.000
+the                  0.000
+to                   0.000
+a                    0.000
+
+Gene 40
+amiloride-sensitive  0.010
+asic2a               0.010
+carboxyl             0.010
+extracellular        0.010
+glioma               0.010
+intracellular        0.010
+loopasic2            0.010
+transmembrane        0.010
+amino                0.010
+inhibits             0.010
+domains              0.010
+subtype              0.010
+termini              0.010
+migration            0.010
+connected            0.008
+consists             0.007
+expression           0.006
+cells                0.006
+current              0.005
+surface              0.003
+large                0.002
+two                  0.001
+by                   0.000
+and                  0.000
+of                   0.000
+a                    0.000
+the                  0.000
+}}}
