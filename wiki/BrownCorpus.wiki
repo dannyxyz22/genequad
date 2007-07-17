@@ -12,6 +12,15 @@ Add your content here.
 from (http://www.lextutor.ca/lists_download/) downloaded 
 [http://www.lextutor.ca/lists_download/brown_freq.txt brown_freq.txt]
 
+== Formula == 
+
+The formula used to calculate BrownRatio was:
+
+ratio = termFrequency_in_document / (BROWNCONSTANT + brownFrequency)
+
+And BROWNCONSTANT was defined as 100. 
+
+
 == Code == 
 
 A couple functions were added to termWeighter.cpp
