@@ -347,6 +347,21 @@ Queries limiting the first 100, 500, 1000, 5000 records have been made (changing
 
 The file generated [http://genequad.googlecode.com/svn/wiki/20first.txt 20first.txt], with the description of the 20 first most frequently documented genes. 
 
+The first most studied gene is:
+
+|| taxID || 9606 ||
+|| geneID || 7157 ||
+|| symbol || TP53 ||
+|| synonyms || LFS1 TRP53 p53 ||
+|| dbXrefs || HGNC:11998 MIM:191170 HPRD:01859||
+|| chromosome || 17 ||
+|| mapLocation || 17p13.1 ||
+|| description || tumor protein p53 (Li-Fraumeni syndrome) ||
+|| typeofGene || protein-coding ||
+|| symbolAuthority || TP53 ||
+|| fullNameAuthority || tumor protein p53 (Li-Fraumeni syndrome) ||
+|| otherDesignations || p53 tumor suppressor | tumor protein p53 ||
+
 According to Dr. Simon, these results make sense, since the top one is TP53 a gene involved in Cancer. 
 
 == Covering percentage ==
