@@ -16,10 +16,10 @@ After that it was noticed that a couple lines from generifs_basic had more than 
 ||9606||708||1830244,8262387,8567680||2004-05-11||13:09||This protein has also been identified as the p32 subunit of pre-mRNA splicing factor SF2, as well as a hyaluronic acid-binding protein||
 
 became three records:
-
-||9606||708||1830244||2004-05-11||13:09||This protein has also been identified as the p32 subunit of pre-mRNA splicing factor SF2, as well as a hyaluronic acid-binding protein||
-||9606||708||8262387||2004-05-11||13:09||This protein has also been identified as the p32 subunit of pre-mRNA splicing factor SF2, as well as a hyaluronic acid-binding protein||
-||9606||708||8567680||2004-05-11||13:09||This protein has also been identified as the p32 subunit of pre-mRNA splicing factor SF2, as well as a hyaluronic acid-binding protein||
+|| *id* || *taxID* || *geneID* || *pmID* || *updateDay* || *updateHour* || *description* ||
+|| 1 ||9606||708||1830244||2004-05-11||13:09||This protein has also been identified as the p32 subunit of pre-mRNA splicing factor SF2, as well as a hyaluronic acid-binding protein||
+|| 2 ||9606||708||8262387||2004-05-11||13:09||This protein has also been identified as the p32 subunit of pre-mRNA splicing factor SF2, as well as a hyaluronic acid-binding protein||
+|| 3 ||9606||708||8567680||2004-05-11||13:09||This protein has also been identified as the p32 subunit of pre-mRNA splicing factor SF2, as well as a hyaluronic acid-binding protein||
 
 This way, fast access is granted for the PubMedID field, now stored as integer.
 The database was created with the following SQL statement:
