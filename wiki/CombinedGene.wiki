@@ -424,31 +424,32 @@ int main(){
 || the || 175063 || 
 || of || 205615 || 
 
+Comparing GeneRIFs and Brown Corpus
+
+|| *GeneRIF Stemmed word* ||*Frequency*|| *Brown Corpus word*|| *Frequency*||
+|| of || 205615 || the ||	69967||
+|| the || 175063 ||of ||	36406 ||
+|| in || 164756 || a ||	34647||
+|| and || 152792 || and ||	28855 ||
+|| a || 71672 || to || 	26142 ||
+|| to || 62849 || in ||	21338 ||
+|| is || 56088 || that ||	10774 ||
+|| cell || 49655 || is ||	10093 ||
+|| that || 43647 || was ||	9808 ||
+|| with || 42050 || he ||	9794 ||
+|| by || 39557 || for || 	9485 ||
+|| express || 36867 || it ||	9047 ||
+|| for || 36045 || with ||	7286 ||
+|| activ || 35625 || as ||	7250 ||
+|| role || 26650 || his ||	6994 ||
+|| protein || 26007 || on ||	6735 ||
+|| gene || 24169 || be ||	6373 ||
+|| regul || 24034 || at ||	5377 ||
+|| may || 19123 || by ||	5303 ||
+|| receptor || 17785 || this ||	5138 ||
+|| an || 17738 || hat ||	5126 ||
+|| as || 16332 ||  not || 	4605 ||
+|| function || 16107 || are ||	4388 ||
 
 
-|| *Stemmed word* || *Number of times it appeared* ||
-|| of || 205615 || 
-|| the || 175063 ||
-|| in || 164756 || 
-|| and || 152792 || 
-|| a || 71672 || 
-|| to || 62849 || 
-|| is || 56088 || 
-|| cell || 49655 || 
-|| that || 43647 || 
-|| with || 42050 || 
-|| by || 39557 || 
-|| express || 36867 || 
-|| for || 36045 || 
-|| activ || 35625 || 
-|| role || 26650 || 
-|| protein || 26007 || 
-|| gene || 24169 || 
-|| regul || 24034 || 
-|| may || 19123 || 
-|| receptor || 17785 || 
-|| an || 17738 || 
-|| as || 16332 ||  
-|| function || 16107 || 
-|| are || 16052 || 
-|| signal || 15598 || 
+
