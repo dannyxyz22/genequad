@@ -29,4 +29,4 @@ ImportingEntrezSummary
 
 = Presentation = 
 
-[http://genequad.googlecode.com/svn/wiki/GeneQuad-July18th.pdf July, 18th GeneQuad presentation]
+[http://genequad.googlecode.com/svn/wiki/GeneQuad-July18th.pdf July, 18th GeneQuad presentation.pdf]
