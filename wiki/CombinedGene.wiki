@@ -426,7 +426,7 @@ int main(){
 
 Comparing GeneRIFs and Brown Corpus
 
-|| *GeneRIF Stemmed word* ||*Frequency*|| *Brown Corpus word*|| *Frequency*||
+|| *GeneRIF Stemmed word* || *Frequency* || *Brown Corpus word*|| *Frequency*||
 || of || 205615 || the ||	69967||
 || the || 175063 ||of ||	36406 ||
 || in || 164756 || a ||	34647||
@@ -450,6 +450,5 @@ Comparing GeneRIFs and Brown Corpus
 || an || 17738 || hat ||	5126 ||
 || as || 16332 ||  not || 	4605 ||
 || function || 16107 || are ||	4388 ||
-
 
 
