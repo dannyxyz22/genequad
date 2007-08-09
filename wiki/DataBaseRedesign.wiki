@@ -70,6 +70,7 @@ Foreign Key (geneID) references geneInfo(geneID)
 
 For table gene_info, the new design will be this.
 
+{{{
 create table gene_info (
  taxID integer,
 geneID integer,
@@ -88,6 +89,7 @@ otherDesignations varchar(50),
 date integer,
 Primary Key(geneID)
 );
+}}}
 
 The key change here is that there's no more id field (no needs for that, since geneID is already unique) as well as indexing geneID as the primary key.
 As this table is really big, I think this will be one of the highest tunning changes.
@@ -95,6 +97,7 @@ I had really not noticed how bad was last design (sorry for forgetting to pay at
 
 pubMed will stay pretty much the same:
 
+{{{
 create table pubMed (
 pmID integer,
 pubDate varchar(20),
@@ -104,11 +107,13 @@ title text,
 issn varchar (28),
 Primary Key (pmID)
 );
+}}}
 
 Now, about generif... well, it really needs one id field, and I was indexing this id field...
 As there were lots of join queries with pubMed, this was really bad for performance, since the field to make the join was not indexed.
 I think the best choice here is to keep with the id unique key, but make the index as a composition of pmID and id. This way, pmID is indexed and join performance will speed up a lot.
 
+{{{
 create table generif (
 id integer,
 taxID integer,
@@ -121,13 +126,14 @@ Primary Key (pmID,id),
 Foreign Key (geneID) references geneInfo(geneID),
 Foreign Key (pmID) references pubMed(pmID)
 );
+}}}
 
 I've also added some foreign keys. This will probably be better.
 Another point I was paying attention is that, after all the programs have run, the results are pretty much static. So, there's no great needs for running complicated queries.
 As we are also going to need the results in AJAX pages, the retrieving time must be very low.
 This way, a good option is to store the results in two tables (hotGenes and risingStars). Now we can simply query and order the results based on the count (hotGenes) and percChange (risingStars).
 
-
+{{{
 create table hotGenes (
 geneID integer,
 year integer,
@@ -143,3 +149,4 @@ percChange double,
 Primary Key (geneID,year),
 Foreign Key (geneID) references geneInfo(geneID)
 );
+}}}
