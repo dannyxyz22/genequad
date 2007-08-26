@@ -1,7 +1,5 @@
 #summary brief description of GenDex sub-project
 
-= GenDex =
-
 http://genequad.googlecode.com/svn/wiki/gendex.jpg
 
 Gendex is a study of genes popularity. It takes NCBI's GeneRIFs (Gene Reference Into Function) and PubMeds as input data to rank article counts as well as differences between academic focus along the years. This way, Gendex is also capable of showing study trends of each gene. The results of this program are presented to researchers in a friendly web application developed using Ruby on Rails. As an effort to keep the data always new, Gendex has been designed to be a self-updatable program, generating new results every week. Guess what's the most studied gene of 2007!
