@@ -1,4 +1,4 @@
-#brief description of GenDex sub-project
+#summary brief description of GenDex sub-project
 
 = GenDex =
 
