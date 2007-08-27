@@ -1,0 +1,3 @@
+#summary description of GeneQuad SoC2007 project
+
+http://genequad.googlecode.com/svn/wiki/genequad-new.jpg
